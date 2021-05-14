@@ -1,0 +1,25 @@
+{
+  "name": "xing-learn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon backend/server",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zingade/xing-learn.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zingade/xing-learn/issues"
+  },
+  "homepage": "https://github.com/Zingade/xing-learn#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
