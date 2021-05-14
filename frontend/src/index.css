@@ -1,0 +1,31 @@
+.brand{
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: #ff8000;
+}
+
+.bigfont{
+  color:black;
+  font-size: 10rem;
+  margin: "0 5% 0 5%";
+  font-weight: bold;
+  flex-wrap: wrap;
+}
+
+.bigfont:hover{
+  color:#ff8000;
+}
+
+.footer{
+  grid-area: footer;
+  background-color: #203040;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
