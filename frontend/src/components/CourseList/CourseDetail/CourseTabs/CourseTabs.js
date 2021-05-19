@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
   wrapper: {
     color: "darkgray !important",
   },
+  marginL: {
+    marginLeft:0,
+  }
 }));
 
 function TabPanel({ children, tabNum, index, ...other }) {
@@ -75,7 +78,7 @@ const CourseTabs = () => {
         />
       </GmailTabs>
 
-      <Box ml={3}>
+      <Box className={classes.marginL} ml={3}>
         <Paper elevation={0}>
           <TabPanel tabNum={tabNum} index={0}>
             <KannadaSwar />
