@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
-import Dashboard from './containers/dashboard/dashboard'
+import Dashboard from './containers/Dashboard/Dashboard'
+import CourseDetail from "./components/CourseList/CourseDetail/CourseDetail";
 import KannadaSwar from './components/Kannada/KannadaSwar'
 import UserLayout from "./hoc/Layout/UserLayout";
 
@@ -25,7 +26,9 @@ function App() {
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Switch>
         {/* With Layout */}
-        <RouteUser path="/" exact Component={KannadaSwar} />
+        <RouteUser path="/" exact Component={Dashboard} />
+        <RouteUser path="/kannadaswar" exact Component={KannadaSwar} />
+        <RouteUser path="/courses/:id" Component={CourseDetail} />
       </Switch>
     </BrowserRouter>
   );

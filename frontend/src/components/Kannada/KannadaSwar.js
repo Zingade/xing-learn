@@ -47,7 +47,7 @@ export const KannadaSwar = () => {
   <Grid container spacing={2} justify="center">
   {swarList.map((letter,index) => (
     <Grid item key={index}>
-      <KanCardItem letter={letter} />
+      <KanCardItem letter={letter}/>
     </Grid>
   ))}
   </Grid>

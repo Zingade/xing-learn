@@ -102,7 +102,6 @@ const Appbar = (props) => {
               >
                 <MenuIcon />
               </IconButton>
-              <Logo />
             </Hidden>
             <Hidden smUp>
               <IconButton
@@ -114,6 +113,7 @@ const Appbar = (props) => {
                 <MenuIcon />
               </IconButton>
             </Hidden>
+            <Logo />
             <Typography className={classes.title} variant="h6" noWrap />
             {/* Right menu */}
             <DropMenu />

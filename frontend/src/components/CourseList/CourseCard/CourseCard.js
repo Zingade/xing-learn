@@ -7,33 +7,26 @@ import {
   CardMedia,
   CardContent,
   CardActions,
+  CardActionArea,
   Collapse,
   IconButton,
   Typography,
 } from "@material-ui/core";
 
-import { VolumeUp, PlayCircleOutline, ExpandMore } from "@material-ui/icons";
+import { Favorite, Share, ExpandMore } from "@material-ui/icons";
+
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
-    maxWidth: 110,
+    width: 200,
   },
   title: {
-    height: 45,
-    fontSize: "3.2rem",
-    lineHeight: 1,
-    fontWeight: "bold",
-    '&:hover': {
-        color: "#ff8000",
-     },
-},
-  media: {
-    height: 77,
+    height: 70,
   },
-  media_w: {
-    height: 77,
-    width: 125,
+  media: {
+    height: 0,
+    paddingTop: "56.25%", // 16:9
   },
   expand: {
     transform: "rotate(0deg)",
@@ -47,50 +40,45 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-const KanLetterCard = ({ letter }) => {
-  let classes = useStyles();
+const CourseCard = ({ course }) => {
+  const classes = useStyles();
 
   const [expanded, setExpanded] = useState(false);
-  const [gifPlay, setGifPlay] = useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
-  const handleGifClick = () => {
-    setGifPlay(!gifPlay);
-  };
-
   return (
     <Card className={classes.root}>
-        {gifPlay?(
-        <>
+      <CardActionArea component={Link} to={`/courses/${course.courseLink}`}>
         <CardMedia
-        className={(letter.width_adjust)?classes.media_w:classes.media}
-        image={letter.gif}
-        title="Testing"
+          className={classes.media}
+          image={course.image}
+          title={course.topic}
         />
-      </>
-      ):(
-      <CardContent>
+        <CardContent>
           <Typography
             className={classes.title}
+            gutterBottom
             variant="subtitle2"
-            component="h1"
+            component="h5"
           >
-            {letter.charecter}
+            {course.topic}
           </Typography>
-      </CardContent>
-      )}
+          <Typography variant="body2" color="textSecondary" component="p">
+            {course.views} views
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+
       <CardActions disableSpacing>
-        <IconButton size="small" aria-label="share" onClick={letter.audio()}>
-          <VolumeUp />
+        <IconButton aria-label="share">
+          <Share />
         </IconButton>
-        <IconButton size="small" aria-label="add to favorites" onClick={handleGifClick}>
-          <PlayCircleOutline />
+        <IconButton aria-label="add to favorites">
+          <Favorite />
         </IconButton>
-        <IconButton  size="small"
+        <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
           })}
@@ -104,8 +92,8 @@ const KanLetterCard = ({ letter }) => {
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph variant="h4">
-            {letter.description}
+          <Typography paragraph variant="body2">
+            {course.courseDesc}
           </Typography>
         </CardContent>
       </Collapse>
@@ -113,4 +101,4 @@ const KanLetterCard = ({ letter }) => {
   );
 };
 
-export default KanLetterCard;
+export default CourseCard;

@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     ...theme.mixins.toolbar,
   },
   appbar: {
-    background: "linear-gradient(120deg, #2980b9, #8e44ad)",
+    background: "#203040",
   },
   navlink: {
     color: "inherit",
