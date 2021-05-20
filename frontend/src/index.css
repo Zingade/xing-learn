@@ -26,6 +26,14 @@
   background-color: #203040;
   color: #ffffff;
   display: flex;
+  height: 3rem;
   justify-content: center;
   align-items: center;
+}
+
+.card-image{
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  object-position: center center;
 }

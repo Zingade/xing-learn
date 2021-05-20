@@ -12,7 +12,7 @@ import {
   Typography,
 } from "@material-ui/core";
 
-import { VolumeUp, PlayCircleOutline, ExpandMore } from "@material-ui/icons";
+import { VolumeUp, PlayCircleOutline, Stop, ExpandMore } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,6 +35,18 @@ const useStyles = makeStyles((theme) => ({
     height: 77,
     width: 125,
   },
+  cardMedia:{
+    width: 77,
+    height: 80,
+    objectFit: "cover",
+    objectPosition: "center",
+    },
+  textMargin:{
+    margin: 0,
+    },
+  contentPadding:{
+    paddingBottom: 0,
+    },
   expand: {
     transform: "rotate(0deg)",
     marginLeft: "auto",
@@ -69,7 +81,7 @@ const KanLetterCard = ({ letter }) => {
         <CardMedia
         className={(letter.width_adjust)?classes.media_w:classes.media}
         image={letter.gif}
-        title="Testing"
+        title="Writing"
         />
       </>
       ):(
@@ -88,7 +100,7 @@ const KanLetterCard = ({ letter }) => {
           <VolumeUp />
         </IconButton>
         <IconButton size="small" aria-label="add to favorites" onClick={handleGifClick}>
-          <PlayCircleOutline />
+          {gifPlay?<Stop/>:<PlayCircleOutline />}
         </IconButton>
         <IconButton  size="small"
           className={clsx(classes.expand, {
@@ -103,11 +115,17 @@ const KanLetterCard = ({ letter }) => {
       </CardActions>
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph variant="h4">
+          <CardMedia
+          className={classes.cardMedia}
+          image={letter.image}
+          title="King"
+          />
+          <Typography className={classes.textMargin} paragraph variant="h4">
             {letter.description}
           </Typography>
-        </CardContent>
+          <IconButton size="small" aria-label="share" onClick={letter.audio()}>
+            <VolumeUp />
+          </IconButton>
       </Collapse>
     </Card>
   );

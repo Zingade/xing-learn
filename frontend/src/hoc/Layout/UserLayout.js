@@ -67,6 +67,9 @@ const UserLayout = (props) => {
               {props.children}
             </main>
           </div>
+          <footer className="footer">
+            xingSoft - Alright reserved.
+          </footer>
         </SnackbarProvider>
       </ThemeProvider>
     );

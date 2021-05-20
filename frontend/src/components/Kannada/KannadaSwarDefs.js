@@ -29,6 +29,22 @@ import gifFileOO from "../../assets/gifs/Kannada-alphabet-oo.gif"
 import gifFileOW from "../../assets/gifs/Kannada-alphabet-ou.gif"
 import gifFileAM from "../../assets/gifs/Kannada-alphabet-am.gif"
 import gifFileAHA from "../../assets/gifs/Kannada-Alphabet-Aha.gif"
+import Arasa from '../../assets/images/kan-alphabet/Arasa.jpg'
+import Aata from '../../assets/images/kan-alphabet/Aata.jpg'
+import Ina from '../../assets/images/kan-alphabet/Ina.jpg'
+import Eesha from '../../assets/images/kan-alphabet/Eesha.jpg'
+import Uraga from '../../assets/images/kan-alphabet/Snake.jpg'
+import Oota from '../../assets/images/kan-alphabet/Oota.jpg'
+import Ruta from '../../assets/images/kan-alphabet/Ruta.jpg'
+import Ele from '../../assets/images/kan-alphabet/Ele.jpg'
+import Eeta from '../../assets/images/kan-alphabet/Pulley.png'
+import Aidala from '../../assets/images/kan-alphabet/FivePetals.png'
+import Onte from '../../assets/images/kan-alphabet/Camel.jpg'
+import Oolaga from '../../assets/images/kan-alphabet/Shehanayee.jpg'
+import Aushad from '../../assets/images/kan-alphabet/Medicine.jpg'
+import Ambar from '../../assets/images/kan-alphabet/Sky.jpg'
+import Aha from '../../assets/images/kan-alphabet/Aha.jpg'
+
 
 export const PlayA = () => {
     const [pA] = useSound(audioFileA);
@@ -113,6 +129,7 @@ export const swarList = [
       gif:gifFileA,
       description:"ಅರಸ",
       width_adjust:false,
+      image:Arasa,
       },
     {
       id:2,
@@ -121,14 +138,16 @@ export const swarList = [
       gif:gifFileAA,
       description:"ಆಟ",
       width_adjust:false,
+      image:Aata,
     },
     {
       id:3,
       charecter: "ಇ",
       audio: PlayI,
       gif:gifFileI,
-      description:"ಇಲಿ",
+      description:"ಇನ",
       width_adjust:false,
+      image:Ina,
     },
     {
       id:4,
@@ -137,14 +156,16 @@ export const swarList = [
       gif:gifFileII,
       description:"ಈಶ",
       width_adjust:false,
+      image:Eesha,
     },
     {
       id:5,
       charecter: "ಉ",
       audio: PlayU,
       gif:gifFileU,
-      description:"ಉರಿ",
+      description:"ಉರಗ",
       width_adjust:false,
+      image:Uraga,
     },
     {
       id:6,
@@ -153,14 +174,16 @@ export const swarList = [
       gif:gifFileUU,
       description:"ಊಟ",
       width_adjust:true,
+      image:Oota,
     },
     {
       id:7,
       charecter: "ಋ",
       audio: PlayRU,
       gif:gifFileRU,
-      description:"ಋಷಿ",
+      description:"ಋತ",
       width_adjust:false,
+      image:Ruta,
     },
     {
       id:8,
@@ -169,22 +192,25 @@ export const swarList = [
       gif:gifFileAE,
       description:"ಎಲೆ",
       width_adjust:false,
+      image:Ele,
     },
     {
       id:9,
       charecter: "ಏ",
       audio: PlayAEE,
       gif:gifFileAEE,
-      description:"ಏಡಿ",
+      description:"ಏತ",
       width_adjust:false,
+      image:Eeta,
     },
     {
       id:10,
       charecter: "ಐ",
       audio: PlayAI,
       gif:gifFileAI,
-      description:"ಐದು",
+      description:"ಐದಳ",
       width_adjust:false,
+      image:Aidala,
     },
     {
       id:11,
@@ -193,14 +219,16 @@ export const swarList = [
       gif:gifFileO,
       description:"ಒಂಟೆ",
       width_adjust:false,
+      image:Onte,
     },
     {
       id:12,
       charecter: "ಓ",
       audio: PlayOO,
       gif:gifFileOO,
-      description:"ಓದು",
+      description:"ಓಲಗ",
       width_adjust:false,
+      image:Oolaga,
     },
     {
       id:13,
@@ -209,14 +237,16 @@ export const swarList = [
       gif:gifFileOW,
       description:"ಔಷಧ",
       width_adjust:false,
+      image:Aushad,
     },
     {
       id:14,
       charecter: "ಅಂ",
       audio: PlayAM,
       gif:gifFileAM,
-      description:"ಅಂಗಿ",
+      description:"ಅಂಬರ",
       width_adjust:false,
+      image:Ambar,
     },
     {
       id:15,
@@ -225,5 +255,6 @@ export const swarList = [
       gif:gifFileAHA,
       description:"ಅಃ",
       width_adjust:false,
+      image:Aha,
     },
 ];

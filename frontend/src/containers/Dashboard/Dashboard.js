@@ -8,7 +8,7 @@ import CourseList from "../../components/CourseList/CourseList";
 const useStyles = makeStyles((theme) => ({
   feature: {
     color: "white",
-    minHeight: "30vh",
+    minHeight: "20vh",
     position: "relative",
     background: `linear-gradient(120deg, #2980b9, #8e44ad)`,
   },
@@ -67,7 +67,7 @@ function Dashboard({ darkTheme }) {
           display="flex"
           flexDirection="column"
           justifyContent="center"
-          minHeight="90vh"
+          minHeight="30vh"
         >
         </Box>
       </Box>
