@@ -41,12 +41,18 @@ const useStyles = makeStyles((theme) => ({
     objectFit: "cover",
     objectPosition: "center",
     },
-  textMargin:{
-    margin: 0,
-    },
+  iconPadding:{
+    paddingLeft: '40px',
+  },
   contentPadding:{
-    paddingBottom: 0,
-    },
+    paddingBottom: '0px',
+  },
+  textPadding:{
+    paddingLeft: '20px',
+    paddingRight: '0px',
+    paddingTop: '0px',
+    paddingBottom: '0px',
+  },
   expand: {
     transform: "rotate(0deg)",
     marginLeft: "auto",
@@ -115,15 +121,17 @@ const KanLetterCard = ({ letter }) => {
       </CardActions>
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent className={classes.contentPadding} >
           <CardMedia
           className={classes.cardMedia}
           image={letter.image}
           title={letter.english}
           />
-          <Typography className={classes.textMargin} paragraph variant="h4">
+          <Typography variant="h5">
             {letter.description}
           </Typography>
-          <IconButton size="small" aria-label="share" onClick={letter.audio()}>
+        </CardContent>
+          <IconButton className={classes.iconPadding} size="small" aria-label="share" onClick={letter.audio()}>
             <VolumeUp />
           </IconButton>
       </Collapse>

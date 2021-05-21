@@ -31,7 +31,7 @@ export const KannadaVyanjan = () => {
 
   return <>
   <Grid>
-    <Typography variant="h2" gutterBottom>
+    <Typography variant="h4" gutterBottom>
     ವ್ಯಂಜನಗಳು(Consonants) - 34
     </Typography>
   </Grid>

@@ -42,7 +42,7 @@ import Aidala from '../../assets/images/kan-alphabet/FivePetals.png'
 import Onte from '../../assets/images/kan-alphabet/Camel.jpg'
 import Oolaga from '../../assets/images/kan-alphabet/Shehanayee.jpg'
 import Aushad from '../../assets/images/kan-alphabet/Medicine.jpg'
-import Ambar from '../../assets/images/kan-alphabet/Sky.jpg'
+import Angi from '../../assets/images/kan-alphabet/Angi.jpg'
 import Aha from '../../assets/images/kan-alphabet/Aha.jpg'
 
 
@@ -270,11 +270,11 @@ export const swarList = [
       charecter: "ಅಂ",
       audio: PlayAM,
       gif:gifFileAM,
-      description:"ಅಂಬರ",
+      description:"ಅಂಗಿ",
       width_adjust:false,
-      image:Ambar,
+      image:Angi,
       audioEx: PlayAM,
-      english:"Sky"
+      english:"Shirt"
     },
     {
       id:15,
