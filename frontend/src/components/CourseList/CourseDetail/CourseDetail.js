@@ -28,11 +28,13 @@ const useStyles = makeStyles((theme) => ({
 function CourseDetail(props) {
   const classes = useStyles();
   const theme = useTheme();
-  
+
+  const courseId = props.match.params.id ? props.match.params.id : '';
+
   return (
     <Grid container direction={"row"}>
         {/* Detail */}
-        <CourseTabs />
+        <CourseTabs courseId={courseId}/>
     </Grid>
   );
 }

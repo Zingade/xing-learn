@@ -41,7 +41,7 @@ export const KannadaSwar = () => {
   return <>
   <Grid>
     <Typography variant="h2" gutterBottom>
-      ಸ್ವರಗಳು(Vowels) - ೧೩
+      ಸ್ವರಗಳು(Vowels) - 15
     </Typography>
   </Grid>
   <Grid container spacing={2} justify="center">

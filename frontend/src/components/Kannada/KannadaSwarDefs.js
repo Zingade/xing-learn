@@ -130,6 +130,8 @@ export const swarList = [
       description:"ಅರಸ",
       width_adjust:false,
       image:Arasa,
+      audioEx: PlayA,
+      english:"King"
       },
     {
       id:2,
@@ -139,6 +141,8 @@ export const swarList = [
       description:"ಆಟ",
       width_adjust:false,
       image:Aata,
+      audioEx: PlayAA,
+      english:"Play"
     },
     {
       id:3,
@@ -148,6 +152,8 @@ export const swarList = [
       description:"ಇನ",
       width_adjust:false,
       image:Ina,
+      audioEx: PlayI,
+      english:"Sun"
     },
     {
       id:4,
@@ -157,6 +163,8 @@ export const swarList = [
       description:"ಈಶ",
       width_adjust:false,
       image:Eesha,
+      audioEx: PlayII,
+      english:"God"
     },
     {
       id:5,
@@ -166,6 +174,8 @@ export const swarList = [
       description:"ಉರಗ",
       width_adjust:false,
       image:Uraga,
+      audioEx: PlayU,
+      english:"Snake"
     },
     {
       id:6,
@@ -175,6 +185,8 @@ export const swarList = [
       description:"ಊಟ",
       width_adjust:true,
       image:Oota,
+      audioEx: PlayUU,
+      english:"Eat"
     },
     {
       id:7,
@@ -184,6 +196,8 @@ export const swarList = [
       description:"ಋತ",
       width_adjust:false,
       image:Ruta,
+      audioEx: PlayRU,
+      english:"Season"
     },
     {
       id:8,
@@ -193,6 +207,8 @@ export const swarList = [
       description:"ಎಲೆ",
       width_adjust:false,
       image:Ele,
+      audioEx: PlayAE,
+      english:"Leave"
     },
     {
       id:9,
@@ -202,6 +218,8 @@ export const swarList = [
       description:"ಏತ",
       width_adjust:false,
       image:Eeta,
+      audioEx: PlayAEE,
+      english:"Pulley"
     },
     {
       id:10,
@@ -211,6 +229,8 @@ export const swarList = [
       description:"ಐದಳ",
       width_adjust:false,
       image:Aidala,
+      audioEx: PlayAI,
+      english:"Five Petals"
     },
     {
       id:11,
@@ -220,6 +240,8 @@ export const swarList = [
       description:"ಒಂಟೆ",
       width_adjust:false,
       image:Onte,
+      audioEx: PlayO,
+      english:"Camel"
     },
     {
       id:12,
@@ -229,6 +251,8 @@ export const swarList = [
       description:"ಓಲಗ",
       width_adjust:false,
       image:Oolaga,
+      audioEx: PlayOO,
+      english:"Trumplate"
     },
     {
       id:13,
@@ -238,6 +262,8 @@ export const swarList = [
       description:"ಔಷಧ",
       width_adjust:false,
       image:Aushad,
+      audioEx: PlayOW,
+      english:"Medicine"
     },
     {
       id:14,
@@ -247,6 +273,8 @@ export const swarList = [
       description:"ಅಂಬರ",
       width_adjust:false,
       image:Ambar,
+      audioEx: PlayAM,
+      english:"Sky"
     },
     {
       id:15,
@@ -256,5 +284,7 @@ export const swarList = [
       description:"ಅಃ",
       width_adjust:false,
       image:Aha,
+      audioEx: PlayAHA,
+      english:"Aha"
     },
 ];

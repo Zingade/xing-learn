@@ -118,7 +118,7 @@ const KanLetterCard = ({ letter }) => {
           <CardMedia
           className={classes.cardMedia}
           image={letter.image}
-          title="King"
+          title={letter.english}
           />
           <Typography className={classes.textMargin} paragraph variant="h4">
             {letter.description}

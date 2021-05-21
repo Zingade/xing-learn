@@ -6,6 +6,10 @@ import { Box, Paper } from "@material-ui/core";
 import { Inbox, LocalOffer, People, Info } from "@material-ui/icons";
 
 import KannadaSwar from '../../../Kannada/KannadaSwar'
+import KannadaVyanjan from '../../../Kannada/KannadaVyanjan'
+import ErrorPage from '../../../Kannada/ErrorPage'
+
+import { KANNADA_SWAR, KANNADA_VYANJANA } from "../../CourseContents";
 
 const useStyles = makeStyles((theme) => ({
   gmailTabs: {
@@ -40,10 +44,9 @@ function a11yProps(index) {
   };
 }
 
-const CourseTabs = () => {
+const CourseTabs = ({courseId}) => {
   const classes = useStyles();
   const [tabNum, setTabNum] = useState(0);
-
   const handleChange = (_, newValue) => {
     setTabNum(newValue);
   };
@@ -81,7 +84,7 @@ const CourseTabs = () => {
       <Box className={classes.marginL} ml={3}>
         <Paper elevation={0}>
           <TabPanel tabNum={tabNum} index={0}>
-            <KannadaSwar />
+            {(courseId === KANNADA_SWAR)? <KannadaSwar/>:(courseId === KANNADA_VYANJANA)?<KannadaVyanjan/>:<ErrorPage/>}
           </TabPanel>
 
           <TabPanel tabNum={tabNum} index={1}>
