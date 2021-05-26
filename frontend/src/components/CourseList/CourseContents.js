@@ -40,8 +40,8 @@ export const courseIndex = [
     image:"https://elearning0706.cybersoft.edu.vn/hinhanh/advanced-react-and-redux-2018-edition.png",
     views:3456,
     courseLink:"tbd-002",
-    courseDesc:"This course guides you from beginner to expert. Without knowledge bases, you'll become a master skilled Web Developer!",
-    topic:"Mathis addtiona of two digit numbers"
+    courseDesc:"This course guides you for the beginner to add two digit numbers",
+    topic:"Maths - Addition of two digit numbers"
   },
 ]
   

@@ -67,12 +67,12 @@ const CourseCarousel = ({ courseList }) => {
   return (
     <div style={{ color: "#494949" }}>
       <Carousel
-        autoPlay={false}
+        autoPlay={true}
         timer={500}
         animation={"slide"}
         indicators={false}
         timeout={300}
-        navButtonsAlwaysVisible={false}
+        navButtonsAlwaysVisible={true}
       >
         {groupList.map((course, index) => (
           <CourseItems key={index} index={index} courseList={courseList} />

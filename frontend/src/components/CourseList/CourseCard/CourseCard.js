@@ -65,9 +65,6 @@ const CourseCard = ({ course }) => {
           >
             {course.topic}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {course.views} views
-          </Typography>
         </CardContent>
       </CardActionArea>
 

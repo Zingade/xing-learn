@@ -3,13 +3,14 @@ import React, { useState, Fragment } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { GmailTabs, GmailTabItem } from "@mui-treasury/components/tabs/gmail";
 import { Box, Paper } from "@material-ui/core";
-import { Inbox, LocalOffer, People, Info } from "@material-ui/icons";
+import { Inbox, LocalOffer, People } from "@material-ui/icons";
 
 import KannadaSwar from '../../../Kannada/KannadaSwar'
 import KannadaVyanjan from '../../../Kannada/KannadaVyanjan'
 import ErrorPage from '../../../Kannada/ErrorPage'
 
 import { KANNADA_SWAR, KANNADA_VYANJANA } from "../../CourseContents";
+import Quiz from '../../../UI/Quiz/Quiz'
 
 const useStyles = makeStyles((theme) => ({
   gmailTabs: {
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
   marginL: {
     marginLeft:0,
-  }
+  },
 }));
 
 function TabPanel({ children, tabNum, index, ...other }) {
@@ -82,13 +83,13 @@ const CourseTabs = ({courseId}) => {
       </GmailTabs>
 
       <Box className={classes.marginL} ml={3}>
-        <Paper elevation={0}>
+        <Paper elevation={0} >
           <TabPanel tabNum={tabNum} index={0}>
             {(courseId === KANNADA_SWAR)? <KannadaSwar/>:(courseId === KANNADA_VYANJANA)?<KannadaVyanjan/>:<ErrorPage/>}
           </TabPanel>
 
           <TabPanel tabNum={tabNum} index={1}>
-            Test
+            <Quiz/>
           </TabPanel>
 
           <TabPanel tabNum={tabNum} index={2}>

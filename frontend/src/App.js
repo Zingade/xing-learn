@@ -5,6 +5,7 @@ import Dashboard from './containers/Dashboard/Dashboard'
 import CourseDetail from "./components/CourseList/CourseDetail/CourseDetail";
 import KannadaSwar from './components/Kannada/KannadaSwar'
 import UserLayout from "./hoc/Layout/UserLayout";
+import Courses from "./containers/Courses/Courses";
 
 const RouteUser = ({ Component, ...props }) => {
   return (
@@ -27,6 +28,7 @@ function App() {
       <Switch>
         {/* With Layout */}
         <RouteUser path="/" exact Component={Dashboard} />
+        <RouteUser path="/courses" exact Component={Courses} />
         <RouteUser path="/kannadaswar" exact Component={KannadaSwar} />
         <RouteUser path="/courses/:id" Component={CourseDetail} />
       </Switch>
