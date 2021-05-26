@@ -11,6 +11,8 @@ import ErrorPage from '../../../Kannada/ErrorPage'
 
 import { KANNADA_SWAR, KANNADA_VYANJANA } from "../../CourseContents";
 import Quiz from '../../../UI/Quiz/Quiz'
+import {swarQuestions} from '../../../Kannada/KannadaSwarDefs'
+import {vyanjanQuestions} from '../../../Kannada/KannadaVyanjanDefs'
 
 const useStyles = makeStyles((theme) => ({
   gmailTabs: {
@@ -89,7 +91,7 @@ const CourseTabs = ({courseId}) => {
           </TabPanel>
 
           <TabPanel tabNum={tabNum} index={1}>
-            <Quiz/>
+            <Quiz aQuestions={(courseId === KANNADA_SWAR)?swarQuestions:(courseId === KANNADA_VYANJANA)?vyanjanQuestions:swarQuestions}/>
           </TabPanel>
 
           <TabPanel tabNum={tabNum} index={2}>

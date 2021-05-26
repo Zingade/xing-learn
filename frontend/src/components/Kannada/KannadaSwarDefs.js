@@ -288,3 +288,54 @@ export const swarList = [
       english:"Aha"
     },
 ];
+
+export const swarQuestions = [
+  {
+    category: "Kannada Swargalu",
+    correct_answer: "ಋ",
+    difficulty: "easy",
+    incorrect_answers: [
+      "ಈ",
+      "ಒ",
+      "ಔ",
+    ],
+    question:"What comes after ಊ ?",
+    type: "multiple"
+  },
+  {
+    category: "Kannada Swargalu",
+    correct_answer: "ಋ",
+    difficulty: "easy",
+    incorrect_answers: [
+      "ಈ",
+      "ಒ",
+      "ಔ",
+    ],
+    question:"What comes after ಊ ?",
+    type: "multiple"
+  },
+  {
+    category: "Kannada Swargalu",
+    correct_answer: "ಋ",
+    difficulty: "easy",
+    incorrect_answers: [
+      "ಈ",
+      "ಒ",
+      "ಔ",
+    ],
+    question:"What comes after ಊ ?",
+    type: "multiple"
+  },
+  {
+    category: "Kannada Swargalu",
+    correct_answer: "ಋ",
+    difficulty: "easy",
+    incorrect_answers: [
+      "ಈ",
+      "ಒ",
+      "ಔ",
+    ],
+    question:"What comes after ಊ ?",
+    type: "multiple"
+  },
+];

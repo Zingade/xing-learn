@@ -3,63 +3,13 @@ import { useEffect, useState } from "react";
 import Question from "../Quiz/Question/Question";
 import "./Quiz.css";
 
-const myQuestions = [
-  {
-    category: "Kannada Swargalu",
-    correct_answer: "ಋ",
-    difficulty: "easy",
-    incorrect_answers: [
-      "ಈ",
-      "ಒ",
-      "ಔ",
-    ],
-    question:"What comes after ಊ ?",
-    type: "multiple"
-  },
-  {
-    category: "Kannada Swargalu",
-    correct_answer: "ಋ",
-    difficulty: "easy",
-    incorrect_answers: [
-      "ಈ",
-      "ಒ",
-      "ಔ",
-    ],
-    question:"What comes after ಊ ?",
-    type: "multiple"
-  },
-  {
-    category: "Kannada Swargalu",
-    correct_answer: "ಋ",
-    difficulty: "easy",
-    incorrect_answers: [
-      "ಈ",
-      "ಒ",
-      "ಔ",
-    ],
-    question:"What comes after ಊ ?",
-    type: "multiple"
-  },
-  {
-    category: "Kannada Swargalu",
-    correct_answer: "ಋ",
-    difficulty: "easy",
-    incorrect_answers: [
-      "ಈ",
-      "ಒ",
-      "ಔ",
-    ],
-    question:"What comes after ಊ ?",
-    type: "multiple"
-  },
-];
 
-const Quiz = () => {
+const Quiz = ({aQuestions}) => {
 
   const [options, setOptions] = useState();
   const [currQues, setCurrQues] = useState(0);
   const [score, setScore] = useState(0);
-  const [questions, setQuestions] = useState(myQuestions);
+  const [questions, setQuestions] = useState(aQuestions);
 
 
   useEffect(() => {
@@ -97,7 +47,6 @@ const Quiz = () => {
             correct={questions[currQues]?.correct_answer}
             score={score}
             setScore={setScore}
-            setQuestions={setQuestions}
           />
         </>
       ) : (

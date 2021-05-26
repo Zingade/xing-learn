@@ -33,6 +33,8 @@
     padding: 15px 20px;
     margin: 10px;
     box-shadow: 0 0 2px black;
+    font-size:large;
+    font-weight: bold;
   }
   
   @media (max-width: 614px) {

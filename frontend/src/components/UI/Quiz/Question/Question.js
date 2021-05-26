@@ -11,7 +11,6 @@ const Question = ({
   correct,
   setScore,
   score,
-  setQuestions,
 }) => {
   const [selected, setSelected] = useState();
   const [error, setError] = useState(false);
@@ -58,10 +57,10 @@ const Question = ({
     </div>
     ):(
     <div className="question">
-      <h1>Question {currQues + 1} :</h1>
+      <h2>Question {currQues + 1} :</h2>
 
       <div className="singleQuestion">
-        <h2>{questions[currQues].question}</h2>
+        <h3>{questions[currQues].question}</h3>
         <div className="options">
           {error && <ErrorMessage>{error}</ErrorMessage>}
           {options &&

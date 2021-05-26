@@ -648,26 +648,67 @@ export const vyanjanList = [
         audioEx: PlayLHA,
         english:"Tap"
     },
-/*    {
-        id:35,
-        charecter: "ಕ್ಷ",
-        audio: PlayKSHA,
-        gif:gifFileKSHA,
-        description:"ಕ್ಷತ್ರಿಯ",
-        width_adjust:false,
-        image:Kshatriya,
-        audioEx: PlayKSHA,
-        english:"Kshatriya"
-    },
-    {
-        id:36,
-        charecter: "ಜ್ಞ",
-        audio: PlayJNA,
-        gif:gifFileJNA,
-        description:"ಯಜ್ಞ",
-        width_adjust:false,
-        image:Yajna,
-        audioEx: PlayJNA,
-        english:"Sacrifice"
-    },*/
+];
+
+export const vyanjanQuestions = [
+  {
+    category: "Kannada Vyanjangalu",
+    correct_answer: "ಞ",
+    difficulty: "easy",
+    incorrect_answers: [
+      "ಜ",
+      "ಙ",
+      "ಛ",
+    ],
+    question:"What comes after ಝ?",
+    type: "multiple"
+  },
+  {
+    category: "Kannada Vyanjangalu",
+    correct_answer: "ಞ",
+    difficulty: "easy",
+    incorrect_answers: [
+      "ಜ",
+      "ಙ",
+      "ಛ",
+    ],
+    question:"What comes after ಝ?",
+    type: "multiple"
+  },
+  {
+    category: "Kannada Vyanjangalu",
+    correct_answer: "ಞ",
+    difficulty: "easy",
+    incorrect_answers: [
+      "ಜ",
+      "ಙ",
+      "ಛ",
+    ],
+    question:"What comes after ಝ?",
+    type: "multiple"
+  },
+  {
+    category: "Kannada Vyanjangalu",
+    correct_answer: "ಞ",
+    difficulty: "easy",
+    incorrect_answers: [
+      "ಜ",
+      "ಙ",
+      "ಛ",
+    ],
+    question:"What comes after ಝ?",
+    type: "multiple"
+  },
+  {
+    category: "Kannada Vyanjangalu",
+    correct_answer: "ಞ",
+    difficulty: "easy",
+    incorrect_answers: [
+      "ಜ",
+      "ಙ",
+      "ಛ",
+    ],
+    question:"What comes after ಝ?",
+    type: "multiple"
+  },
 ];
