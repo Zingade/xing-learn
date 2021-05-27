@@ -99,7 +99,7 @@ const DropMenu = (props) => {
       <Box m={matchMD ? 0 : 1}>
         <DarkThemeSwitch />
       </Box>
-      <ButtonGroup disableElevation variant="contained" size="small">
+      {/* <ButtonGroup disableElevation variant="contained" size="small">
         <Button
           color="primary"
           startIcon={<VpnKeyIcon />}
@@ -113,12 +113,12 @@ const DropMenu = (props) => {
           color="default"
           startIcon={<PersonAddIcon />}
           component={Link}
-          to={"/sign-up"}
+          to={"/register"}
           className={classes.button}
         >
           Sign Up
         </Button>
-      </ButtonGroup>
+  </ButtonGroup> */}
     </Box>
   );
 

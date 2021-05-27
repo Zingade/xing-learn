@@ -189,7 +189,7 @@ const MenuList = (props) => {
           <Courses />
         </Tooltip>
 
-        {user && user.maLoaiNguoiDung === "GV" ? (
+        {/*{user && user.maLoaiNguoiDung === "GV" ? (
           <Fragment>
             <Tooltip title="Courses Manage">
               <CoursesManage />
@@ -203,7 +203,7 @@ const MenuList = (props) => {
 
         <Tooltip title="About">
           <About />
-        </Tooltip>
+        </Tooltip>*/}
       </List>
     </Box>
   );
