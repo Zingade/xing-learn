@@ -102,6 +102,43 @@ import Shataka from '../../assets/images/kan-alphabet/Shataka.jpg'
 import Shaharu from '../../assets/images/kan-alphabet/Shaharu.jpg'
 import Sara from '../../assets/images/kan-alphabet/Sara.jpg'
 import Hadagu from '../../assets/images/kan-alphabet/Hadagu.jpg'
+import Khala from "../../assets/images/kan-alphabet/Khala.jpg"
+
+import audioFileExKA from "../../assets/sounds/AUDIO-2021-05-27-20-20-16_1.mp3"
+import audioFileExKHA from "../../assets/sounds/AUDIO-2021-05-27-20-20-16.mp3"
+import audioFileExGA from "../../assets/sounds/AUDIO-2021-05-27-20-20-14_1.mp3"
+import audioFileExGHA from "../../assets/sounds/AUDIO-2021-05-27-20-20-15_1.mp3"
+import audioFileExKNA from "../../assets/sounds/Kannada-gna.ogg.mp3"
+import audioFileExCH from "../../assets/sounds/AUDIO-2021-05-27-20-20-15.mp3"
+import audioFileExCHA from "../../assets/sounds/AUDIO-2021-05-27-20-20-14.mp3"
+import audioFileExJA from "../../assets/sounds/AUDIO-2021-05-27-20-20-12.mp3"
+import audioFileExJHA from "../../assets/sounds/AUDIO-2021-05-27-20-20-12_1.mp3"
+import audioFileExYAN from "../../assets/sounds/Kannada-nya.ogg.mp3"
+import audioFileExTHA from "../../assets/sounds/AUDIO-2021-05-27-20-20-42-2.mp3"
+import audioFileExTHAH from "../../assets/sounds/AUDIO-2021-05-27-20-20-41_1.mp3"
+import audioFileExDAH from "../../assets/sounds/AUDIO-2021-05-27-20-20-42.mp3"
+import audioFileExDHAH from "../../assets/sounds/AUDIO-2021-05-27-20-20-41.mp3"
+import audioFileExNHA from "../../assets/sounds/AUDIO-2021-05-27-20-20-40.mp3"
+import audioFileExTA from "../../assets/sounds/AUDIO-2021-05-27-20-20-39.mp3"
+import audioFileExTHHA from "../../assets/sounds/AUDIO-2021-05-27-20-20-39_2.mp3"
+import audioFileExDA from "../../assets/sounds/AUDIO-2021-05-27-20-20-39_1.mp3"
+import audioFileExDHA from "../../assets/sounds/AUDIO-2021-05-27-20-20-38_1.mp3"
+import audioFileExNA from "../../assets/sounds/AUDIO-2021-05-27-20-20-38.mp3"
+import audioFileExPA from "../../assets/sounds/AUDIO-2021-05-27-20-21-07_1.mp3"
+import audioFileExPHA from "../../assets/sounds/AUDIO-2021-05-27-20-21-09.mp3"
+import audioFileExBA from "../../assets/sounds/AUDIO-2021-05-27-20-21-07.mp3"
+import audioFileExBHA from "../../assets/sounds/AUDIO-2021-05-27-20-21-06_1.mp3"
+import audioFileExMA from "../../assets/sounds/AUDIO-2021-05-27-20-21-08.mp3"
+import audioFileExYA from "../../assets/sounds/AUDIO-2021-05-27-20-21-05_1.mp3"
+import audioFileExRA from "../../assets/sounds/AUDIO-2021-05-27-20-21-05.mp3"
+import audioFileExLA from "../../assets/sounds/AUDIO-2021-05-27-20-21-06.mp3"
+import audioFileExVA from "../../assets/sounds/AUDIO-2021-05-27-20-21-04_1.mp3"
+import audioFileExSHA from "../../assets/sounds/AUDIO-2021-05-27-20-21-04.mp3"
+import audioFileExSHHA from "../../assets/sounds/AUDIO-2021-05-27-20-21-32.mp3"
+import audioFileExSA from "../../assets/sounds/AUDIO-2021-05-27-20-21-31.mp3"
+import audioFileExHA from "../../assets/sounds/AUDIO-2021-05-27-20-21-31_1.mp3"
+import audioFileExLHA from "../../assets/sounds/AUDIO-2021-05-27-20-21-30.mp3"
+
 
 export const PlayKA = () => {
     const [pA] = useSound(audioFileKA);
@@ -273,6 +310,176 @@ export const PlayLHA = () => {
     return pA;
 }
 
+export const PlayExKA = () => {
+    const [pA] = useSound(audioFileExKA);
+    return pA;
+}
+
+export const PlayExKHA = () => {
+    const [pA] = useSound(audioFileExKHA);
+    return pA;
+}
+
+export const PlayExGA = () => {
+    const [pA] = useSound(audioFileExGA);
+    return pA;
+}
+
+export const PlayExGHA = () => {
+    const [pA] = useSound(audioFileExGHA);
+    return pA;
+}
+
+export const PlayExKNA = () => {
+    const [pA] = useSound(audioFileExKNA);
+    return pA;
+}
+
+export const PlayExCH = () => {
+    const [pA] = useSound(audioFileExCH);
+    return pA;
+}
+
+export const PlayExCHA = () => {
+    const [pA] = useSound(audioFileExCHA);
+    return pA;
+}
+
+export const PlayExJA = () => {
+    const [pA] = useSound(audioFileExJA);
+    return pA;
+}
+
+export const PlayExJHA = () => {
+    const [pA] = useSound(audioFileExJHA);
+    return pA;
+}
+
+export const PlayExYAN = () => {
+    const [pA] = useSound(audioFileExYAN);
+    return pA;
+}
+
+export const PlayExTHA = () => {
+    const [pA] = useSound(audioFileExTHA);
+    return pA;
+}
+
+export const PlayExTHAH = () => {
+    const [pA] = useSound(audioFileExTHAH);
+    return pA;
+}
+
+export const PlayExDAH = () => {
+    const [pA] = useSound(audioFileExDAH);
+    return pA;
+}
+
+export const PlayExDHAH = () => {
+    const [pA] = useSound(audioFileExDHAH);
+    return pA;
+}
+
+export const PlayExNHA = () => {
+    const [pA] = useSound(audioFileExNHA);
+    return pA;
+}
+
+export const PlayExTA = () => {
+    const [pA] = useSound(audioFileExTA);
+    return pA;
+}
+
+export const PlayExTHHA = () => {
+    const [pA] = useSound(audioFileExTHHA);
+    return pA;
+}
+
+export const PlayExDA = () => {
+    const [pA] = useSound(audioFileExDA);
+    return pA;
+}
+
+export const PlayExDHA = () => {
+    const [pA] = useSound(audioFileExDHA);
+    return pA;
+}
+
+export const PlayExNA = () => {
+    const [pA] = useSound(audioFileExNA);
+    return pA;
+}
+
+export const PlayExPA = () => {
+    const [pA] = useSound(audioFileExPA);
+    return pA;
+}
+
+export const PlayExPHA = () => {
+    const [pA] = useSound(audioFileExPHA);
+    return pA;
+}
+
+export const PlayExBA = () => {
+    const [pA] = useSound(audioFileExBA);
+    return pA;
+}
+
+export const PlayExBHA = () => {
+    const [pA] = useSound(audioFileExBHA);
+    return pA;
+}
+
+export const PlayExMA = () => {
+    const [pA] = useSound(audioFileExMA);
+    return pA;
+}
+
+export const PlayExYA = () => {
+    const [pA] = useSound(audioFileExYA);
+    return pA;
+}
+
+export const PlayExRA = () => {
+    const [pA] = useSound(audioFileExRA);
+    return pA;
+}
+
+export const PlayExLA = () => {
+    const [pA] = useSound(audioFileExLA);
+    return pA;
+}
+
+export const PlayExVA = () => {
+    const [pA] = useSound(audioFileExVA);
+    return pA;
+}
+
+export const PlayExSHA = () => {
+    const [pA] = useSound(audioFileExSHA);
+    return pA;
+}
+
+export const PlayExSHHA = () => {
+    const [pA] = useSound(audioFileExSHHA);
+    return pA;
+}
+
+export const PlayExSA = () => {
+    const [pA] = useSound(audioFileExSA);
+    return pA;
+}
+
+export const PlayExHA = () => {
+    const [pA] = useSound(audioFileExHA);
+    return pA;
+}
+
+export const PlayExLHA = () => {
+    const [pA] = useSound(audioFileExLHA);
+    return pA;
+}
+
 export const vyanjanList = [
     {
         id:1,
@@ -282,7 +489,7 @@ export const vyanjanList = [
         description:"ಕಮಲ",
         width_adjust:false,
         image:Kamal,
-        audioEx: PlayKA,
+        audioEx: PlayExKA,
         english:"Lotus"
         },
     {
@@ -293,7 +500,7 @@ export const vyanjanList = [
         description:"ಖಗ",
         width_adjust:false,
         image:Khaga,
-        audioEx: PlayKHA,
+        audioEx: PlayExKHA,
         english:"Bird"
     },
     {
@@ -304,7 +511,7 @@ export const vyanjanList = [
         description:"ಗಜ",
         width_adjust:false,
         image:Gaja,
-        audioEx: PlayGA,
+        audioEx: PlayExGA,
         english:"Elephant"
     },
     {
@@ -315,7 +522,7 @@ export const vyanjanList = [
         description:"ಘಟ",
         width_adjust:false,
         image:Ghataka,
-        audioEx: PlayGHA,
+        audioEx: PlayExGHA,
         english:"Pot"
     },
     {
@@ -326,7 +533,7 @@ export const vyanjanList = [
         description:"ಙ",
         width_adjust:false,
         image:Kna,
-        audioEx: PlayKNA,
+        audioEx: PlayExKNA,
         english:"Kna"
     },
     {
@@ -337,7 +544,7 @@ export const vyanjanList = [
         description:"ಚಮಚ",
         width_adjust:true,
         image:Chamach,
-        audioEx: PlayCH,
+        audioEx: PlayExCH,
         english:"Spoon"
     },
     {
@@ -348,7 +555,7 @@ export const vyanjanList = [
         description:"ಛತ್ರಿ",
         width_adjust:false,
         image:Chatri,
-        audioEx: PlayCHA,
+        audioEx: PlayExCHA,
         english:"Umbrella"
     },
     {
@@ -359,7 +566,7 @@ export const vyanjanList = [
         description:"ಜಲ",
         width_adjust:false,
         image:Jala,
-        audioEx: PlayJA,
+        audioEx: PlayExJA,
         english:"Water"
     },
     {
@@ -370,7 +577,7 @@ export const vyanjanList = [
         description:"ಝರಿ",
         width_adjust:false,
         image:Jhari,
-        audioEx: PlayJHA,
+        audioEx: PlayExJHA,
         english:"Water stream"
     },
     {
@@ -381,7 +588,7 @@ export const vyanjanList = [
         description:"ಞ",
         width_adjust:false,
         image:Yan,
-        audioEx: PlayYAN,
+        audioEx: PlayExYAN,
         english:"Yan"
     },
     {
@@ -392,7 +599,7 @@ export const vyanjanList = [
         description:"ಟಗರು",
         width_adjust:false,
         image:Tagaru,
-        audioEx: PlayTHA,
+        audioEx: PlayExTHA,
         english:"Ram"
     },
     {
@@ -403,7 +610,7 @@ export const vyanjanList = [
         description:"ಠಸ್ಸೆ",
         width_adjust:false,
         image:Thakka,
-        audioEx: PlayTHAH,
+        audioEx: PlayExTHAH,
         english:"Rubber Stamp"
     },
     {
@@ -414,7 +621,7 @@ export const vyanjanList = [
         description:"ಡಮರು",
         width_adjust:false,
         image:Damaru,
-        audioEx: PlayDAH,
+        audioEx: PlayExDAH,
         english:"Musical instrument"
     },
     {
@@ -425,7 +632,7 @@ export const vyanjanList = [
         description:"ಢಕ್ಕೆ",
         width_adjust:false,
         image:Dhakke,
-        audioEx: PlayDHAH,
+        audioEx: PlayExDHAH,
         english:"Musical instrument"
     },
     {
@@ -436,7 +643,7 @@ export const vyanjanList = [
         description:"ಹಣ",
         width_adjust:false,
         image:Hana,
-        audioEx: PlayNHA,
+        audioEx: PlayExNHA,
         english:"Money"
     },
     {
@@ -447,7 +654,7 @@ export const vyanjanList = [
         description:"ತಬಲ",
         width_adjust:false,
         image:Tabala,
-        audioEx: PlayTA,
+        audioEx: PlayExTA,
         english:"Drum"
         },
         {
@@ -458,7 +665,7 @@ export const vyanjanList = [
         description:"ಥಳಿಸು",
         width_adjust:false,
         image:Thalisu,
-        audioEx: PlayTHHA,
+        audioEx: PlayExTHHA,
         english:"Beating"
         },
         {
@@ -469,7 +676,7 @@ export const vyanjanList = [
         description:"ದನ",
         width_adjust:false,
         image:Dana,
-        audioEx: PlayDA,
+        audioEx: PlayExDA,
         english:"Cattle"
         },
         {
@@ -480,7 +687,7 @@ export const vyanjanList = [
         description:"ಧನ",
         width_adjust:false,
         image:Dhana,
-        audioEx: PlayDHA,
+        audioEx: PlayExDHA,
         english:"Money"
         },
         {
@@ -491,7 +698,7 @@ export const vyanjanList = [
         description:"ನಳ",
         width_adjust:false,
         image:Nala,
-        audioEx: PlayNA,
+        audioEx: PlayExNA,
         english:"Tap"
         },
         {
@@ -502,7 +709,7 @@ export const vyanjanList = [
         description:"ಪಟ",
         width_adjust:false,
         image:Pata,
-        audioEx: PlayPA,
+        audioEx: PlayExPA,
         english:"Kite"
     },
     {
@@ -513,7 +720,7 @@ export const vyanjanList = [
         description:"ಫಲ",
         width_adjust:false,
         image:Phalak,
-        audioEx: PlayPHA,
+        audioEx: PlayExPHA,
         english:"Fruits"
     },
     {
@@ -524,7 +731,7 @@ export const vyanjanList = [
         description:"ಬಳಪ",
         width_adjust:false,
         image:Balapa,
-        audioEx: PlayBA,
+        audioEx: PlayExBA,
         english:"Cholk piece"
     },
     {
@@ -535,7 +742,7 @@ export const vyanjanList = [
         description:"ಭವನ",
         width_adjust:false,
         image:Bhavana,
-        audioEx: PlayBHA,
+        audioEx: PlayExBHA,
         english:"Palace"
     },
     {
@@ -546,7 +753,7 @@ export const vyanjanList = [
         description:"ಮರ",
         width_adjust:false,
         image:Mara,
-        audioEx: PlayMA,
+        audioEx: PlayExMA,
         english:"Tree"
     },
     {
@@ -557,7 +764,7 @@ export const vyanjanList = [
         description:"ಯಮ",
         width_adjust:false,
         image:Yama,
-        audioEx: PlayYA,
+        audioEx: PlayExYA,
         english:"Yama"
     },
     {
@@ -568,7 +775,7 @@ export const vyanjanList = [
         description:"ರಥ",
         width_adjust:false,
         image:Ratha,
-        audioEx: PlayRA,
+        audioEx: PlayExRA,
         english:"Chariot"
     },
     {
@@ -579,7 +786,7 @@ export const vyanjanList = [
         description:"ಲಂಗ",
         width_adjust:false,
         image:Langa,
-        audioEx: PlayLA,
+        audioEx: PlayExLA,
         english:"Skirt"
     },
     {
@@ -590,7 +797,7 @@ export const vyanjanList = [
         description:"ವನ",
         width_adjust:false,
         image:Vana,
-        audioEx: PlayVA,
+        audioEx: PlayExVA,
         english:"Park"
         },
         {
@@ -601,7 +808,7 @@ export const vyanjanList = [
         description:"ಶತಕ",
         width_adjust:false,
         image:Shataka,
-        audioEx: PlaySHA,
+        audioEx: PlayExSHA,
         english:"Century"
         },
         {
@@ -612,7 +819,7 @@ export const vyanjanList = [
         description:"ಷಹರು",
         width_adjust:false,
         image:Shaharu,
-        audioEx: PlaySHHA,
+        audioEx: PlayExSHHA,
         english:"City"
         },
         {
@@ -623,7 +830,7 @@ export const vyanjanList = [
         description:"ಸರ",
         width_adjust:false,
         image:Sara,
-        audioEx: PlaySA,
+        audioEx: PlayExSA,
         english:"Garland"
         },
         {
@@ -634,7 +841,7 @@ export const vyanjanList = [
         description:"ಹಡಗು",
         width_adjust:false,
         image:Hadagu,
-        audioEx: PlayHA,
+        audioEx: PlayExHA,
         english:"Ship"
         },
         {
@@ -642,11 +849,11 @@ export const vyanjanList = [
         charecter: "ಳ",
         audio: PlayLHA,
         gif:gifFileLHA,
-        description:"ನಳ",
+        description:"ಖಳ",
         width_adjust:false,
-        image:Nala,
-        audioEx: PlayLHA,
-        english:"Tap"
+        image:Khala,
+        audioEx: PlayExLHA,
+        english:"Villeian"
     },
 ];
 

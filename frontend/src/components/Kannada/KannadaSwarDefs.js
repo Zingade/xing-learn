@@ -45,6 +45,21 @@ import Aushad from '../../assets/images/kan-alphabet/Medicine.jpg'
 import Angi from '../../assets/images/kan-alphabet/Angi.jpg'
 import Aha from '../../assets/images/kan-alphabet/Aha.jpg'
 import audioFileExA from '../../assets/sounds/Kannada-A-Arasa.mp3'
+import audioFileExAA from "../../assets/sounds/AUDIO-2021-05-27-19-39-58.mp3"
+import audioFileExI from "../../assets/sounds/AUDIO-2021-05-27-20-18-32.mp3"
+import audioFileExII from "../../assets/sounds/AUDIO-2021-05-27-20-18-53.mp3"
+import audioFileExU from "../../assets/sounds/AUDIO-2021-05-27-20-19-14.mp3"
+import audioFileExUU from "../../assets/sounds/AUDIO-2021-05-27-20-19-14_1.mp3"
+import audioFileExRU from "../../assets/sounds/AUDIO-2021-05-27-20-19-13.mp3"
+import audioFileExAE from "../../assets/sounds/AUDIO-2021-05-27-20-19-46.mp3"
+import audioFileExAEE from "../../assets/sounds/AUDIO-2021-05-27-20-19-46_1.mp3"
+import audioFileExAI from "../../assets/sounds/AUDIO-2021-05-27-20-19-45_1.mp3"
+import audioFileExO from "../../assets/sounds/AUDIO-2021-05-27-20-19-45.mp3"
+import audioFileExOO from "../../assets/sounds/AUDIO-2021-05-27-20-19-44_1.mp3"
+import audioFileExOW from "../../assets/sounds/AUDIO-2021-05-27-20-19-44.mp3"
+import audioFileExAM from "../../assets/sounds/AUDIO-2021-05-27-20-19-43.mp3"
+import audioFileExAHA from "../../assets/sounds/Kannada-aha.ogg.mp3"
+
 
 export const PlayA = () => {
     const [pA] = useSound(audioFileA);
@@ -126,6 +141,76 @@ export const PlayExA = () => {
   return pA;
 }
 
+export const PlayExAA = () => {
+  const [pA] = useSound(audioFileExAA);
+  return pA;
+}
+
+export const PlayExI = () => {
+  const [pA] = useSound(audioFileExI);
+  return pA;
+}
+
+export const PlayExII = () => {
+  const [pA] = useSound(audioFileExII);
+  return pA;
+}
+
+export const PlayExU = () => {
+  const [pA] = useSound(audioFileExU);
+  return pA;
+}
+
+export const PlayExUU = () => {
+  const [pA] = useSound(audioFileExUU);
+  return pA;
+}
+
+export const PlayExRU = () => {
+  const [pA] = useSound(audioFileExRU);
+  return pA;
+}
+
+export const PlayExAE = () => {
+  const [pA] = useSound(audioFileExAE);
+  return pA;
+}
+
+export const PlayExAEE = () => {
+  const [pA] = useSound(audioFileExAEE);
+  return pA;
+}
+
+export const PlayExAI = () => {
+  const [pA] = useSound(audioFileExAI);
+  return pA;
+}
+
+export const PlayExO = () => {
+  const [pA] = useSound(audioFileExO);
+  return pA;
+}
+
+export const PlayExOO = () => {
+  const [pA] = useSound(audioFileExOO);
+  return pA;
+}
+
+export const PlayExOW = () => {
+  const [pA] = useSound(audioFileExOW);
+  return pA;
+}
+
+export const PlayExAM = () => {
+  const [pA] = useSound(audioFileExAM);
+  return pA;
+}
+
+export const PlayExAHA = () => {
+  const [pA] = useSound(audioFileExAHA);
+  return pA;
+}
+
 export const swarList = [
     {
       id:1,
@@ -146,7 +231,7 @@ export const swarList = [
       description:"ಆಟ",
       width_adjust:false,
       image:Aata,
-      audioEx: PlayAA,
+      audioEx: PlayExAA,
       english:"Play"
     },
     {
@@ -157,7 +242,7 @@ export const swarList = [
       description:"ಇನ",
       width_adjust:false,
       image:Ina,
-      audioEx: PlayI,
+      audioEx: PlayExI,
       english:"Sun"
     },
     {
@@ -168,7 +253,7 @@ export const swarList = [
       description:"ಈಶ",
       width_adjust:false,
       image:Eesha,
-      audioEx: PlayII,
+      audioEx: PlayExII,
       english:"God"
     },
     {
@@ -179,7 +264,7 @@ export const swarList = [
       description:"ಉರಗ",
       width_adjust:false,
       image:Uraga,
-      audioEx: PlayU,
+      audioEx: PlayExU,
       english:"Snake"
     },
     {
@@ -190,7 +275,7 @@ export const swarList = [
       description:"ಊಟ",
       width_adjust:true,
       image:Oota,
-      audioEx: PlayUU,
+      audioEx: PlayExUU,
       english:"Eat"
     },
     {
@@ -201,7 +286,7 @@ export const swarList = [
       description:"ಋತ",
       width_adjust:false,
       image:Ruta,
-      audioEx: PlayRU,
+      audioEx: PlayExRU,
       english:"Season"
     },
     {
@@ -212,7 +297,7 @@ export const swarList = [
       description:"ಎಲೆ",
       width_adjust:false,
       image:Ele,
-      audioEx: PlayAE,
+      audioEx: PlayExAE,
       english:"Leave"
     },
     {
@@ -223,7 +308,7 @@ export const swarList = [
       description:"ಏತ",
       width_adjust:false,
       image:Eeta,
-      audioEx: PlayAEE,
+      audioEx: PlayExAEE,
       english:"Pulley"
     },
     {
@@ -234,7 +319,7 @@ export const swarList = [
       description:"ಐದಳ",
       width_adjust:false,
       image:Aidala,
-      audioEx: PlayAI,
+      audioEx: PlayExAI,
       english:"Five Petals"
     },
     {
@@ -245,7 +330,7 @@ export const swarList = [
       description:"ಒಂಟೆ",
       width_adjust:false,
       image:Onte,
-      audioEx: PlayO,
+      audioEx: PlayExO,
       english:"Camel"
     },
     {
@@ -256,7 +341,7 @@ export const swarList = [
       description:"ಓಲಗ",
       width_adjust:false,
       image:Oolaga,
-      audioEx: PlayOO,
+      audioEx: PlayExOO,
       english:"Trumplate"
     },
     {
@@ -267,7 +352,7 @@ export const swarList = [
       description:"ಔಷಧ",
       width_adjust:false,
       image:Aushad,
-      audioEx: PlayOW,
+      audioEx: PlayExOW,
       english:"Medicine"
     },
     {
@@ -278,7 +363,7 @@ export const swarList = [
       description:"ಅಂಗಿ",
       width_adjust:false,
       image:Angi,
-      audioEx: PlayAM,
+      audioEx: PlayExAM,
       english:"Shirt"
     },
     {
@@ -289,7 +374,7 @@ export const swarList = [
       description:"ಅಃ",
       width_adjust:false,
       image:Aha,
-      audioEx: PlayAHA,
+      audioEx: PlayExAHA,
       english:"Aha"
     },
 ];
