@@ -67,7 +67,7 @@ const CourseCarousel = ({ courseList }) => {
   return (
     <div style={{ color: "#494949" }}>
       <Carousel
-        autoPlay={true}
+        autoPlay={false}
         timer={500}
         animation={"slide"}
         indicators={false}

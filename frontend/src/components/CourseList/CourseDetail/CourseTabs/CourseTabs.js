@@ -76,12 +76,12 @@ const CourseTabs = ({courseId}) => {
           {...a11yProps(1)}
           classes={{ wrapper: classes.wrapper }}
         />
-        <GmailTabItem
+        {/*<GmailTabItem
           icon={<LocalOffer />}
           label={"Result"}
           {...a11yProps(2)}
           classes={{ wrapper: classes.wrapper }}
-        />
+        />*/}
       </GmailTabs>
 
       <Box className={classes.marginL} ml={3}>
@@ -94,9 +94,9 @@ const CourseTabs = ({courseId}) => {
             <Quiz aQuestions={(courseId === KANNADA_SWAR)?swarQuestions:(courseId === KANNADA_VYANJANA)?vyanjanQuestions:swarQuestions}/>
           </TabPanel>
 
-          <TabPanel tabNum={tabNum} index={2}>
+          {/*<TabPanel tabNum={tabNum} index={2}>
             Result
-          </TabPanel>
+      </TabPanel>*/}
         </Paper>
       </Box>
     </Fragment>
