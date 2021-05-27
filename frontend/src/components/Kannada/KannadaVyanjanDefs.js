@@ -711,4 +711,28 @@ export const vyanjanQuestions = [
     question:"What comes after ಝ?",
     type: "multiple"
   },
+  {
+    category: "Kannada Vyanjangalu",
+    correct_answer: "ಞ",
+    difficulty: "easy",
+    incorrect_answers: [
+      "ಜ",
+      "ಙ",
+      "ಛ",
+    ],
+    question:"What comes after ಝ?",
+    type: "multiple"
+  },
+  {
+    category: "Kannada Vyanjangalu",
+    correct_answer: "ಞ",
+    difficulty: "easy",
+    incorrect_answers: [
+      "ಜ",
+      "ಙ",
+      "ಛ",
+    ],
+    question:"What comes after ಝ?",
+    type: "multiple"
+  },
 ];

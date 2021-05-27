@@ -131,7 +131,7 @@ const KanLetterCard = ({ letter }) => {
             {letter.description}
           </Typography>
         </CardContent>
-          <IconButton className={classes.iconPadding} size="small" aria-label="share" onClick={letter.audio()}>
+          <IconButton className={classes.iconPadding} size="small" aria-label="share" onClick={letter.audioEx()}>
             <VolumeUp />
           </IconButton>
       </Collapse>

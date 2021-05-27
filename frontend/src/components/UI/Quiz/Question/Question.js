@@ -41,26 +41,33 @@ const Question = ({
     } 
   };
 
+  const handleReset = () => {
+    setResult(false)
+    setCurrQues(0);
+    setSelected();
+    setScore(0);
+  }
+
   return (
     (result)?(
       <div className="result">
-      <span className="title">Final Score : {score}</span>
+      <span className="title">Final Score : {(score*100/questions.length).toFixed()}% </span>
       <Button
         variant="contained"
         color="secondary"
         size="large"
         style={{ alignSelf: "center", marginTop: 20 }}
-        href="/"
+        onClick={handleReset}
       >
-        Go to homepage
+        Try Again
       </Button>
     </div>
     ):(
     <div className="question">
-      <h2>Question {currQues + 1} :</h2>
+      <h2>Question {currQues + 1} of {questions.length}:</h2>
 
       <div className="singleQuestion">
-        <h3>{questions[currQues].question}</h3>
+        <h2>{questions[currQues].question}</h2>
         <div className="options">
           {error && <ErrorMessage>{error}</ErrorMessage>}
           {options &&

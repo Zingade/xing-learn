@@ -44,7 +44,7 @@ import Oolaga from '../../assets/images/kan-alphabet/Shehanayee.jpg'
 import Aushad from '../../assets/images/kan-alphabet/Medicine.jpg'
 import Angi from '../../assets/images/kan-alphabet/Angi.jpg'
 import Aha from '../../assets/images/kan-alphabet/Aha.jpg'
-
+import audioFileExA from '../../assets/sounds/Kannada-A-Arasa.mp3'
 
 export const PlayA = () => {
     const [pA] = useSound(audioFileA);
@@ -121,6 +121,11 @@ export const PlayAHA = () => {
     return pA;
 }
 
+export const PlayExA = () => {
+  const [pA] = useSound(audioFileExA);
+  return pA;
+}
+
 export const swarList = [
     {
       id:1,
@@ -130,7 +135,7 @@ export const swarList = [
       description:"ಅರಸ",
       width_adjust:false,
       image:Arasa,
-      audioEx: PlayA,
+      audioEx: PlayExA,
       english:"King"
       },
     {

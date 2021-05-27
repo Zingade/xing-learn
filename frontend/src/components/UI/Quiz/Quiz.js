@@ -36,7 +36,7 @@ const Quiz = ({aQuestions}) => {
             <span>{questions[currQues].category}</span>
             <span>
               {/* {questions[currQues].difficulty} */}
-              Score : {score}
+              Score : {score}/{questions.length}
             </span>
           </div>
           <Question

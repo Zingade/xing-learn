@@ -6,6 +6,7 @@ import CourseDetail from "./components/CourseList/CourseDetail/CourseDetail";
 import KannadaSwar from './components/Kannada/KannadaSwar'
 import UserLayout from "./hoc/Layout/UserLayout";
 import Courses from "./containers/Courses/Courses";
+import Auth from "./containers/Auth/Auth";
 
 const RouteUser = ({ Component, ...props }) => {
   return (
@@ -31,6 +32,8 @@ function App() {
         <RouteUser path="/courses" exact Component={Courses} />
         <RouteUser path="/kannadaswar" exact Component={KannadaSwar} />
         <RouteUser path="/courses/:id" Component={CourseDetail} />
+        <Route path="/sign-in" component={Auth} />
+        <Route path="/sign-up" component={Auth} />
       </Switch>
     </BrowserRouter>
   );
