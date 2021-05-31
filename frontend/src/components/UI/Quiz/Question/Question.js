@@ -11,6 +11,7 @@ const Question = ({
   correct,
   setScore,
   score,
+  shuffleQuestions,
 }) => {
   const [selected, setSelected] = useState();
   const [error, setError] = useState(false);
@@ -46,6 +47,7 @@ const Question = ({
     setCurrQues(0);
     setSelected();
     setScore(0);
+    shuffleQuestions()
   }
 
   return (

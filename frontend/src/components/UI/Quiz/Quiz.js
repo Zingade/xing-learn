@@ -4,7 +4,7 @@ import Question from "../Quiz/Question/Question";
 import "./Quiz.css";
 
 
-const Quiz = ({aQuestions}) => {
+const Quiz = ({aQuestions, shuffleQuestions}) => {
 
   const [options, setOptions] = useState();
   const [currQues, setCurrQues] = useState(0);
@@ -47,6 +47,7 @@ const Quiz = ({aQuestions}) => {
             correct={questions[currQues]?.correct_answer}
             score={score}
             setScore={setScore}
+            shuffleQuestions={shuffleQuestions}
           />
         </>
       ) : (

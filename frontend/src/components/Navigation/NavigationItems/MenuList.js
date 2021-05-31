@@ -9,6 +9,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import { AppBar, Toolbar, Tooltip } from "@material-ui/core";
 import { Box, List, IconButton } from "@material-ui/core";
+import LogoImage from '../../../LogoIncon.jpg'
 
 import {
   Menu,
@@ -144,18 +145,8 @@ const MenuList = (props) => {
   const About = React.forwardRef(function MyComponent(props, ref) {
     //  Spread the props to the underlying DOM element.
     return (
-      <div {...props} ref={ref}>
-        <Link to="/about" className={classes.navlink}>
-          <GmailSidebarItem
-            classes={{ collapsed: classes.collapsed, root: classes.root }}
-            color={""}
-            startIcon={<Info className={classes.navIcon} />}
-            label={"About"}
-            amount={""}
-            {...commonProps("/about")}
-            dotOnCollapsed={true}
-          />
-        </Link>
+      <div>
+        <img className="logo-image" src={LogoImage} alt="logo"></img>
       </div>
     );
   });
@@ -199,11 +190,11 @@ const MenuList = (props) => {
               <StudentsManage />
             </Tooltip>
           </Fragment>
-        ) : null}
+        ) : null}*/}
 
         <Tooltip title="About">
           <About />
-        </Tooltip>*/}
+        </Tooltip>
       </List>
     </Box>
   );

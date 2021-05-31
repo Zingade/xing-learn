@@ -394,38 +394,38 @@ export const swarQuestions = [
   },
   {
     category: "Kannada Swargalu",
-    correct_answer: "ಋ",
+    correct_answer: "ಆ",
     difficulty: "easy",
     incorrect_answers: [
       "ಈ",
       "ಒ",
-      "ಔ",
+      "ಇ",
     ],
-    question:"What comes after ಊ ?",
+    question:"What comes after ಅ ?",
     type: "multiple"
   },
   {
     category: "Kannada Swargalu",
-    correct_answer: "ಋ",
+    correct_answer: "ಇ",
     difficulty: "easy",
     incorrect_answers: [
       "ಈ",
-      "ಒ",
-      "ಔ",
+      "ಅ",
+      "ಉ",
     ],
-    question:"What comes after ಊ ?",
+    question:"What comes after ಆ ?",
     type: "multiple"
   },
   {
     category: "Kannada Swargalu",
-    correct_answer: "ಋ",
+    correct_answer: "ಐ",
     difficulty: "easy",
     incorrect_answers: [
       "ಈ",
       "ಒ",
       "ಔ",
     ],
-    question:"What comes after ಊ ?",
+    question:"What comes after ಏ ?",
     type: "multiple"
   },
 ];

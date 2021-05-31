@@ -37,3 +37,12 @@
   object-fit: cover;
   object-position: center center;
 }
+
+.logo-image{
+  padding: 2rem;
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+  object-position: center;
+  margin: 2.5rem;
+}

@@ -3,7 +3,7 @@ import React, { useState, Fragment } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { GmailTabs, GmailTabItem } from "@mui-treasury/components/tabs/gmail";
 import { Box, Paper } from "@material-ui/core";
-import { Inbox, LocalOffer, People } from "@material-ui/icons";
+import { Inbox, /*LocalOffer,*/ People } from "@material-ui/icons";
 
 import KannadaSwar from '../../../Kannada/KannadaSwar'
 import KannadaVyanjan from '../../../Kannada/KannadaVyanjan'
@@ -54,6 +54,13 @@ const CourseTabs = ({courseId}) => {
     setTabNum(newValue);
   };
 
+const shuffleQuestions = () => {
+  swarQuestions.sort(()=> Math.random() - 0.5);
+  vyanjanQuestions.sort(()=> Math.random() - 0.5);
+  }
+
+  shuffleQuestions();
+
   return (
     <Fragment>
       <GmailTabs
@@ -91,7 +98,10 @@ const CourseTabs = ({courseId}) => {
           </TabPanel>
 
           <TabPanel tabNum={tabNum} index={1}>
-            <Quiz aQuestions={(courseId === KANNADA_SWAR)?swarQuestions:(courseId === KANNADA_VYANJANA)?vyanjanQuestions:swarQuestions}/>
+            <Quiz 
+            aQuestions={(courseId === KANNADA_SWAR)?swarQuestions:(courseId === KANNADA_VYANJANA)?vyanjanQuestions:swarQuestions}
+            shuffleQuestions={shuffleQuestions}
+            />
           </TabPanel>
 
           {/*<TabPanel tabNum={tabNum} index={2}>

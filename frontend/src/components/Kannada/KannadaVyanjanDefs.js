@@ -872,74 +872,74 @@ export const vyanjanQuestions = [
   },
   {
     category: "Kannada Vyanjangalu",
-    correct_answer: "ಞ",
+    correct_answer: "ಥ",
     difficulty: "easy",
     incorrect_answers: [
-      "ಜ",
-      "ಙ",
-      "ಛ",
+      "ಧ",
+      "ನ",
+      "ಟ",
     ],
-    question:"What comes after ಝ?",
+    question:"What comes after ತ?",
     type: "multiple"
   },
   {
     category: "Kannada Vyanjangalu",
-    correct_answer: "ಞ",
+    correct_answer: "ಡ",
     difficulty: "easy",
     incorrect_answers: [
+      "ತ",
+      "ಣ",
       "ಜ",
-      "ಙ",
-      "ಛ",
     ],
-    question:"What comes after ಝ?",
+    question:"What comes after ಠ?",
     type: "multiple"
   },
   {
     category: "Kannada Vyanjangalu",
-    correct_answer: "ಞ",
+    correct_answer: "ಯ",
     difficulty: "easy",
     incorrect_answers: [
       "ಜ",
-      "ಙ",
-      "ಛ",
+      "ರ",
+      "ವ",
     ],
-    question:"What comes after ಝ?",
+    question:"What comes after ಮ?",
     type: "multiple"
   },
   {
     category: "Kannada Vyanjangalu",
-    correct_answer: "ಞ",
+    correct_answer: "ಸ",
     difficulty: "easy",
     incorrect_answers: [
-      "ಜ",
+      "ಶ",
       "ಙ",
-      "ಛ",
+      "ಲ",
     ],
-    question:"What comes after ಝ?",
+    question:"What comes after ಷ?",
     type: "multiple"
   },
   {
     category: "Kannada Vyanjangalu",
-    correct_answer: "ಞ",
+    correct_answer: "ಳ",
     difficulty: "easy",
     incorrect_answers: [
-      "ಜ",
-      "ಙ",
-      "ಛ",
+      "ಶ",
+      "ಭ",
+      "ಫ",
     ],
-    question:"What comes after ಝ?",
+    question:"What comes after ಹ?",
     type: "multiple"
   },
   {
     category: "Kannada Vyanjangalu",
-    correct_answer: "ಞ",
+    correct_answer: "ಛ",
     difficulty: "easy",
     incorrect_answers: [
-      "ಜ",
-      "ಙ",
-      "ಛ",
+      "ಗ",
+      "ನ",
+      "ವ",
     ],
-    question:"What comes after ಝ?",
+    question:"What comes after ಚ?",
     type: "multiple"
   },
 ];
