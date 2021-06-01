@@ -6,6 +6,7 @@ import { GmailTabs, GmailTabItem } from "@mui-treasury/components/tabs/gmail";
 import { makeStyles } from "@material-ui/core/styles";
 
 import CourseCarousel from "./CourseCarousel/CourseCarousel";
+import CourseInfo from '../../components/CourseList/CourseDetail/CourseTabs/CourseInfo'
 
 const useStyles = makeStyles((theme) => ({
   gmailTabs: {
@@ -48,7 +49,7 @@ function CourseList(props) {
   let courseRender = courseIndex.map((tab, index) => (
       <TabPanel tabNum={tabNum} index={index} key={tab.subject}>
         <Grid container justify="center" spacing={2}>
-          <CourseCarousel courseList={courseList.filter((course) => {return (course.category.subject === courseIndex[index].subject)})} />
+          <CourseInfo courseList={courseList.filter((course) => {return (course.category.subject === courseIndex[index].subject)})} />
         </Grid>
       </TabPanel>
   ));

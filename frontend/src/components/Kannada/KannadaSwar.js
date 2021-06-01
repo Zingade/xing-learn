@@ -21,6 +21,7 @@ export const KannadaSwar = () => {
   <Grid>
     <Typography variant="h4" gutterBottom>
       ಸ್ವರಗಳು(Vowels) - 15
+      {/*ಅ ಾ (ಆ) ಿ(ಇ) ೀ(ಈ) ು(ಉ) ೂ(ಉ) ೃ(ಋ) ೆ(ಎ) ೇ(ಏ) ೈ(ಐ) ೊ(ಒ) ೋ(ಓ) ೌ(ಔ) ಂ(ಅಂ) ಃ(ಅಃ)*/}
     </Typography>
   </Grid>
   <Grid container spacing={2} justify="center">

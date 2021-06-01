@@ -21,7 +21,7 @@ export const courseIndex = [
       views:1234,
       courseLink:KANNADA_SWAR,
       courseDesc:"This course will show you Kannada Vowels (ಕನ್ನಡ ಸ್ವರಗಳು) with their sounds, writing way and example",
-      topic:"Reading and Writing of Kannada Vowels (ಕನ್ನಡ ಸ್ವರಗಳು)"
+      topic:"Kannada Vowels (ಕನ್ನಡ ಸ್ವರಗಳು)"
     },
     {
       category:{
@@ -31,7 +31,7 @@ export const courseIndex = [
       views:1234,
       courseLink:KANNADA_VYANJANA,
       courseDesc:"This course will show you Kannada Consonants (ಕನ್ನಡ ವ್ಯಂಜನಗಳು) with their sounds, writing way and example",
-      topic:"Reading and Writing of Kannada Consonants (ಕನ್ನಡ ವ್ಯಂಜನಗಳು)"
+      topic:"Kannada Consonants (ಕನ್ನಡ ವ್ಯಂಜನಗಳು)"
     },
     {
       category:{

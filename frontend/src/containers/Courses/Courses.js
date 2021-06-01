@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Grid } from "@material-ui/core";
 import {courseList} from '../../components/CourseList/CourseContents'
+import CourseInfo from '../../components/CourseList/CourseDetail/CourseTabs/CourseInfo'
 
 import CourseCardItem from "../../components/CourseList/CourseCard/CourseCard";
 
@@ -18,7 +19,7 @@ const Courses = (props) => {
   return (
     <Box>
       <Grid container spacing={2} justify="center">
-        {courseListRender}
+        <CourseInfo courseList={courseList}/>
       </Grid>
     </Box>
   );
