@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Zingade/xing-learn#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "reactjs-media": "^1.5.1"
   }
 }

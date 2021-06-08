@@ -13,14 +13,15 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
   heading: {
-    fontSize: theme.typography.pxToRem(15),
+    fontSize: theme.typography.pxToRem(20),
+    fontWeight:"bold",
     flexBasis: "80%",
     flexShrink: 0,
     paddingLeft:10,
   },
   media: {
-    height: 50,
-    width: 60,
+    height: 60,
+    width: 110,
   },
   secondaryHeading: {
     fontSize: theme.typography.pxToRem(15),
