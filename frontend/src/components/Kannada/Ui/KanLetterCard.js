@@ -96,7 +96,8 @@ const KanLetterCard = ({ letter }) => {
             className={classes.title}
             variant="subtitle2"
             component="h1"
-          >
+            onClick={handleExpandClick}
+            >
             {letter.charecter}
           </Typography>
       </CardContent>
