@@ -4,15 +4,17 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { Menu, Box, useMediaQuery } from "@material-ui/core";
-import { Button, ButtonGroup, IconButton } from "@material-ui/core";
+import { Button, IconButton } from "@material-ui/core";
 
-import VpnKeyIcon from "@material-ui/icons/VpnKey";
-import PersonAddIcon from "@material-ui/icons/PersonAdd";
+import LockIcon from "@material-ui/icons/LockOutlined"
 import MoreIcon from "@material-ui/icons/MoreVert";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import ArchiveIcon from "@material-ui/icons/Archive";
 
 import DarkThemeSwitch from "../../SwitchButton/DarkThemeSwitch";
+import VpnKeyIcon from "@material-ui/icons/VpnKey";
+import { Tooltip } from "@material-ui/core";
+
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -99,26 +101,24 @@ const DropMenu = (props) => {
       <Box m={matchMD ? 0 : 1}>
         <DarkThemeSwitch />
       </Box>
-      {/* <ButtonGroup disableElevation variant="contained" size="small">
+      <Tooltip title="Login">
         <Button
-          color="primary"
-          startIcon={<VpnKeyIcon />}
-          component={Link}
-          to={"/sign-in"}
-          className={classes.button}
-        >
-          Login
+            startIcon={<LockIcon style={{ fontSize: 35, color:"skyblue" }}/>}
+            component={Link}
+            to={"/login"}
+            className={classes.button}
+          >
         </Button>
+      </Tooltip>
+      <Tooltip title="Register">
         <Button
-          color="default"
-          startIcon={<PersonAddIcon />}
+          startIcon={<VpnKeyIcon style={{ fontSize: 35, color:"skyblue" }}/>}
           component={Link}
           to={"/register"}
           className={classes.button}
-        >
-          Sign Up
+          >
         </Button>
-  </ButtonGroup> */}
+      </Tooltip>
     </Box>
   );
 

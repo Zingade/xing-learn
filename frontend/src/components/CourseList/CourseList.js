@@ -5,7 +5,6 @@ import { Grid, Box } from "@material-ui/core";
 import { GmailTabs, GmailTabItem } from "@mui-treasury/components/tabs/gmail";
 import { makeStyles } from "@material-ui/core/styles";
 
-import CourseCarousel from "./CourseCarousel/CourseCarousel";
 import CourseInfo from '../../components/CourseList/CourseDetail/CourseTabs/CourseInfo'
 
 const useStyles = makeStyles((theme) => ({

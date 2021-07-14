@@ -1,7 +1,7 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 import Hidden from "@material-ui/core/Hidden";
 import { connect } from "react-redux";
-import {drawClose} from "../../../store/actions/ui";
+import {drawClose} from "../../../Redux/UI/UiAction";
 
 import { Link, withRouter } from "react-router-dom";
 
@@ -13,11 +13,8 @@ import LogoImage from '../../../LogoIncon.jpg'
 
 import {
   Menu,
-  Info,
   Home,
-  People,
   ViewList,
-  InsertDriveFile,
 } from "@material-ui/icons";
 
 import GmailSidebarItem from "@mui-treasury/components/sidebarItem/gmail";
@@ -53,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
 const MenuList = (props) => {
   const classes = useStyles();
 
-  const user = JSON.parse(localStorage.getItem("user"));
+  //const user = JSON.parse(localStorage.getItem("user"));
   const { close, collapsed, sideDraw, history } = props;
   const { onDrawclose } = props;
 
@@ -104,7 +101,7 @@ const MenuList = (props) => {
     );
   });
 
-  const CoursesManage = React.forwardRef(function MyComponent(props, ref) {
+/*  const CoursesManage = React.forwardRef(function MyComponent(props, ref) {
     //  Spread the props to the underlying DOM element.
     return (
       <div {...props} ref={ref}>
@@ -140,7 +137,7 @@ const MenuList = (props) => {
         </Link>
       </div>
     );
-  });
+  });*/
 
   const About = React.forwardRef(function MyComponent(props, ref) {
     //  Spread the props to the underlying DOM element.

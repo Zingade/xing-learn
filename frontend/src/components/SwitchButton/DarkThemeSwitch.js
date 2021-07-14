@@ -3,7 +3,7 @@ import Switch from "@material-ui/core/Switch";
 import { Tooltip } from "@material-ui/core";
 import { useN01SwitchStyles } from "@mui-treasury/styles/switch/n01";
 import { connect } from "react-redux";
-import {darkTheme} from "../../store/actions/ui";
+import {darkTheme} from "../../Redux/UI/UiAction";
 
 const DarkThemeSwitch = ({ darkTheme, onDarkTheme }) => {
   const switchStyles = useN01SwitchStyles();

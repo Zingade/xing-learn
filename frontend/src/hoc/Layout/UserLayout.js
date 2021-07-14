@@ -1,5 +1,5 @@
 import React from "react";
-import {openSidebar, drawOpen, drawClose} from "../../store/actions/ui";
+import {openSidebar, drawOpen, drawClose} from "../../Redux/UI/UiAction";
 import { CssBaseline } from "@material-ui/core";
 import { makeStyles, responsiveFontSizes } from "@material-ui/core/styles";
 import { SnackbarProvider } from "notistack";

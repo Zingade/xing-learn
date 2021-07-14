@@ -6,6 +6,8 @@ import CourseDetail from "./components/CourseList/CourseDetail/CourseDetail";
 import KannadaSwar from './components/Kannada/KannadaSwar'
 import UserLayout from "./hoc/Layout/UserLayout";
 import Courses from "./containers/Courses/Courses";
+import Login from './containers/User/Login'
+import Register from './containers/User/Register'
 
 const RouteUser = ({ Component, ...props }) => {
   return (
@@ -29,6 +31,8 @@ function App() {
         {/* With Layout */}
         <RouteUser path="/" exact Component={Dashboard} />
         <RouteUser path="/courses" exact Component={Courses} />
+        <RouteUser path="/login" exact Component={Login} />
+        <RouteUser path="/register" exact Component={Register} />
         <RouteUser path="/kannadaswar" exact Component={KannadaSwar} />
         <RouteUser path="/courses/:id" Component={CourseDetail} />
       </Switch>
