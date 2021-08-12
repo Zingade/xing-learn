@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
-import { Link, Avatar, Button, Checkbox, FormControlLabel, Grid, makeStyles, Paper, TextField, Typography } from '@material-ui/core'
-import { connect } from "react-redux";
-import LockIcon from '@material-ui/icons/LockOutlined'
+import React, { useEffect } from 'react'
+import { Link, Button, Checkbox, FormControlLabel, Grid, makeStyles, Paper, TextField, Typography } from '@material-ui/core'
+import { connect, useDispatch, useSelector } from "react-redux";
+import { withRouter } from 'react-router-dom';
 import useForm from '../../components/Resue/useForm'
+import { signin } from '../../Redux/User/UserAction';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -16,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
   },
   button:{
     margin: '8px 0'
+  },
+  textField:{
+    margin:"5px 0"
   }
 }))
 
@@ -28,7 +32,9 @@ const initialLoginValues = {
 
 function Login(props) {
 
-  const [validateSuccess, setValidateSuccess] = useState(false);
+  const dispatch = useDispatch();
+  const userSignin = useSelector(state=>state.userSignin);
+  const {loading, userInfo, error} = userSignin;
   const validate = () =>{
     let temp = {}
     temp.userName = values.userName?"":"userName field is required"
@@ -37,44 +43,56 @@ function Login(props) {
     setErrors({
       ...temp
     })
-    return Object.values(temp).every(x => x == "");
+    return Object.values(temp).every(x => x === "");
   }
   const classes = useStyles();
   const {
     values, 
-    setValues, 
     handleInputChange, 
     errors, 
     setErrors
   } = useForm(initialLoginValues);
   
-  const handleSubmit = () => {
-    setValidateSuccess(validate());
+  useEffect(()=>{
+    if(userInfo){
+        props.history.push("/");
+    }
+    return () =>{
+    };
+  }, [userInfo,props.history]);
+
+  const handleSubmit = async () => {
+    if (validate()){
+      await dispatch(signin(values.userName,values.password));
+    }
   }
 
   return (
         <Grid container>
           <Paper elevation={10} className={classes.paper}>
             <Grid align='center'>
-              <Avatar className={classes.avatar}>
-                <LockIcon/>
-              </Avatar>
               <h2>Login</h2>
+              {loading&&<div>Loading...</div>}
+              {error&&<div style={{color:"red",margin:"10px 5px"}}>{error.response.data.msg}</div>}
             </Grid>
               <TextField 
                 label="User name:"
+                variant="outlined"
                 name="userName" 
                 placeholder="Enter User name here.." 
                 value={values.userName}
                 fullWidth
+                className={classes.textField}
                 onChange={handleInputChange}
                 {...(errors.userName && {error:true, helperText:errors.userName} )}
                 />
               <TextField 
                 label="Password:" 
+                variant="outlined"
                 name="password" 
                 placeholder="Enter Password here.." 
                 type="password" 
+                className={classes.textField}
                 fullWidth
                 value={values.password}
                 onChange={handleInputChange}
@@ -97,7 +115,7 @@ function Login(props) {
                 type="submit" 
                 color="primary" 
                 fullWidth 
-                onClick={handleSubmit} href={(validateSuccess)?"/":"#"}>
+                onClick={handleSubmit}>
                 Sign in
               </Button>
               <Typography>
@@ -121,4 +139,4 @@ const mapStateToProps = (state) => {
   };
 };
   
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps)(withRouter(Login));

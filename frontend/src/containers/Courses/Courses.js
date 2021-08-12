@@ -7,9 +7,8 @@ import CourseCardItem from "../../components/CourseList/CourseCard/CourseCard";
 
 const Courses = (props) => {
 
-  let courseListRender;
   if (courseList.length > 0) {
-    courseListRender = courseList.map((course, index) => (
+    courseList.map((course, index) => (
       <Grid item key={index}>
         <CourseCardItem course={course} />
       </Grid>

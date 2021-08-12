@@ -1,19 +1,20 @@
 import React, { useState, Fragment } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { Menu, Box, useMediaQuery } from "@material-ui/core";
-import { Button, IconButton } from "@material-ui/core";
+import { Button, ButtonGroup, IconButton } from "@material-ui/core";
+import PersonAddIcon from "@material-ui/icons/PersonAdd";
 
-import LockIcon from "@material-ui/icons/LockOutlined"
 import MoreIcon from "@material-ui/icons/MoreVert";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import ArchiveIcon from "@material-ui/icons/Archive";
 
 import DarkThemeSwitch from "../../SwitchButton/DarkThemeSwitch";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
-import { Tooltip } from "@material-ui/core";
+import { logout } from "../../../Redux/User/UserAction";
+import { withRouter } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -39,19 +40,29 @@ const useStyles = makeStyles((theme) => ({
 
 const DropMenu = (props) => {
   const classes = useStyles();
-  const { isAuthenticated, darkTheme } = props;
+
+  const { darkTheme } = props;
   const matchMD = useMediaQuery("(min-width:960px)");
   const localTheme = JSON.parse(localStorage.getItem("darkTheme"));
+  const dispatch = useDispatch();
 
+  const userInfoJSON = localStorage.getItem('userInfo');
+  let userInfo = JSON.parse(userInfoJSON) || null;
+  
   let isTheme = darkTheme;
   if (!darkTheme) {
     isTheme = localTheme;
   }
   
+  const handleLogout = () => {
+    dispatch(logout());
+    props.history.push("/");
+  }
+
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(false);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const menuRender = isAuthenticated ? (
+  const menuRender = userInfo ? (
     <Box
       display="flex"
       flexDirection={matchMD ? "row" : "column-reverse"}
@@ -66,8 +77,7 @@ const DropMenu = (props) => {
           size="small"
           startIcon={<ExitToAppIcon />}
           className={classes.button}
-          component={Link}
-          to={"/logout"}
+          onClick={handleLogout}
         >
           Log Out
         </Button>
@@ -101,24 +111,26 @@ const DropMenu = (props) => {
       <Box m={matchMD ? 0 : 1}>
         <DarkThemeSwitch />
       </Box>
-      <Tooltip title="Login">
+      <ButtonGroup disableElevation variant="contained" size="small">
         <Button
-            startIcon={<LockIcon style={{ fontSize: 35, color:"skyblue" }}/>}
-            component={Link}
-            to={"/login"}
-            className={classes.button}
-          >
+          color="primary"
+          startIcon={<VpnKeyIcon />}
+          component={Link}
+          to={"/login"}
+          className={classes.button}
+        >
+          Login
         </Button>
-      </Tooltip>
-      <Tooltip title="Register">
         <Button
-          startIcon={<VpnKeyIcon style={{ fontSize: 35, color:"skyblue" }}/>}
+          color="default"
+          startIcon={<PersonAddIcon />}
           component={Link}
           to={"/register"}
           className={classes.button}
-          >
+        >
+          Sign Up
         </Button>
-      </Tooltip>
+      </ButtonGroup>
     </Box>
   );
 
@@ -155,7 +167,8 @@ const DropMenu = (props) => {
 const mapStateToProps = (state) => {
   return {
     darkTheme: state.ui.darkTheme,
+//    isAuthenticated: state.user.values.isAuthenticated,
   };
 };
 
-export default connect(mapStateToProps)(DropMenu);
+export default connect(mapStateToProps)(withRouter(DropMenu));

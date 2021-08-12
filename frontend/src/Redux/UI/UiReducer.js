@@ -31,7 +31,7 @@ return updateObject(state, { darkTheme: action.darkTheme });
 };
 
 
-const reducer = (state = initialState, action) => {
+const uiReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.DARK_THEME:
       return darkTheme(state, action);
@@ -50,5 +50,5 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export default reducer;  
+export default uiReducer;  
 
