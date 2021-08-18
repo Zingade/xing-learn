@@ -1,9 +1,64 @@
 const express = require('express');
 const User = require('../models/userModel')
-const {getToken, isAuth} = require('../util');
+const {getToken, isAuth, isAdmin} = require('../util');
 var bcrypt = require('bcrypt-nodejs');
 
 const router = express.Router();
+
+router.get('/', async (req, res) => {
+    const users = await User.find({});
+    res.send(users);
+});
+
+router.get('/:id', async (req, res) => {
+    const userId = req.params.id;
+
+    const user = await User.findOne({_id:userId});
+    if (user) {
+        res.send(user);
+    }
+    else {
+        res.status(404).send({msg:"Expense Not Found!"});
+    }
+});
+
+router.post("/", isAuth, isAdmin, async (req, res)=>{
+    const userExists = await User.findOne({
+        name:req.body.name
+    });
+    if (userExists) {
+        return res.status(404).send({msg: 'User name already exists !!'})
+    }
+    const emailExists = await User.findOne({
+        email:req.body.email
+    });
+    if (emailExists) {
+        return res.status(404).send({msg: 'email already exists !!'})
+    }
+
+    var user= new User();
+    user.name = req.body.name;
+    user.email = req.body.email;
+    user.phone = req.body.phone;
+    user.password = bcrypt.hashSync(req.body.password,bcrypt.genSaltSync(5),null);
+
+    const newUser = await user.save();
+    if(newUser){
+        res.send({
+            _id:newUser._id,
+            name:newUser.name,
+            email:newUser.email,
+            phone:newUser.phone,
+            isAdmin:newUser.isAdmin,
+            token: getToken(newUser)
+        })
+    }
+    else {
+        res.status(401).send({msg: 'Invalid User Data'})
+    }
+})
+
+
 
 router.put('/:id', isAuth, async (req, res) => {
     const userId = req.params.id;
@@ -12,7 +67,7 @@ router.put('/:id', isAuth, async (req, res) => {
       user.name = req.body.name || user.name;
       user.email = req.body.email || user.email;
       user.phone = req.body.phone || user.phone;
-      user.password = req.body.password || user.password;
+      user.password = bcrypt.hashSync(req.body.password,bcrypt.genSaltSync(5),null);
       const updatedUser = await user.save();
       res.send({
         _id: updatedUser.id,
@@ -27,6 +82,17 @@ router.put('/:id', isAuth, async (req, res) => {
     }
   });
   
+  router.delete("/:id", isAuth, isAdmin, async (req, res)=>{
+    const userId = req.params.id;
+    const user = await User.findOne({_id:userId});
+    if(user){
+        user.remove();
+        res.send({message:"Expense Deleted!"});
+    }
+    else{
+        res.send({message:"Error in Expense Deletion!"});
+    }
+})
 
 router.post('/signin', async (req, res) => {
     const signinUser = await User.findOne({

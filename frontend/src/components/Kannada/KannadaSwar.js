@@ -24,7 +24,7 @@ export const KannadaSwar = () => {
       {/*ಅ ಾ (ಆ) ಿ(ಇ) ೀ(ಈ) ು(ಉ) ೂ(ಉ) ೃ(ಋ) ೆ(ಎ) ೇ(ಏ) ೈ(ಐ) ೊ(ಒ) ೋ(ಓ) ೌ(ಔ) ಂ(ಅಂ) ಃ(ಅಃ)*/}
     </Typography>
   </Grid>
-  <Grid container spacing={2} justify="center">
+  <Grid container spacing={2} justifyContent="center">
   {swarList.map((letter,index) => (
     <Grid item key={index}>
       <KanCardItem letter={letter}/>

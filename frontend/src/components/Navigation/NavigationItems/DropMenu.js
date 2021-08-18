@@ -3,9 +3,8 @@ import { connect, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 
-import { Menu, Box, useMediaQuery } from "@material-ui/core";
+import { Menu, Box, useMediaQuery, MenuItem } from "@material-ui/core";
 import { Button, ButtonGroup, IconButton } from "@material-ui/core";
-import PersonAddIcon from "@material-ui/icons/PersonAdd";
 
 import MoreIcon from "@material-ui/icons/MoreVert";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
@@ -16,10 +15,10 @@ import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import { logout } from "../../../Redux/User/UserAction";
 import { withRouter } from 'react-router-dom';
 
-
 const useStyles = makeStyles((theme) => ({
   button: {
     textTransform: "none",
+    margin:"0 5px"
   },
   marginLeft: {
     marginLeft: theme.spacing(1),
@@ -61,6 +60,21 @@ const DropMenu = (props) => {
 
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(false);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+    props.history.push("/");
+  };
+
+  const handleMyStudents = () => {
+    //window.alert("My student details")
+    props.history.push('/mystudents')
+    setAnchorEl(null);
+  }
 
   const menuRender = userInfo ? (
     <Box
@@ -69,6 +83,58 @@ const DropMenu = (props) => {
       alignItems="center"
       minWidth={matchMD ? 0 : 180}
     >
+      <Box m={matchMD ? 0 : 1}>
+        <DarkThemeSwitch />
+      </Box>
+      {userInfo && userInfo.isAdmin && (
+        <>
+          <Button 
+            disableElevation 
+            className={classes.button} 
+            startIcon={<ExitToAppIcon />} 
+            size="small" 
+            color="primary" 
+            variant="contained" 
+            aria-controls="simple-menu" 
+            aria-haspopup="true" 
+            onClick={handleClick}>
+          Admin
+          </Button>
+          <Menu
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem 
+              onClick={handleMyStudents}
+            >
+              My Students
+            </MenuItem>
+            <MenuItem onClick={handleClose}>My account</MenuItem>
+            <MenuItem onClick={handleClose}>Logout</MenuItem>
+          </Menu>        
+        </>
+      )}
+      {userInfo && !userInfo.isAdmin && (
+        <>
+        <Box my={matchMD ? 0 : 1} ml={matchMD ? 1 : 0}>
+          <Button
+            disableElevation
+            color="default"
+            variant={isTheme ? "outlined" : "contained"}
+            size="small"
+            startIcon={<ArchiveIcon />}
+            className={classes.button}
+            component={Link}
+            to={"/my-courses"}
+          >
+            My Courses
+          </Button>
+        </Box>
+        </>
+      )}
       <Box m={matchMD ? 0 : 1}>
         <Button
           disableElevation
@@ -82,22 +148,7 @@ const DropMenu = (props) => {
           Log Out
         </Button>
       </Box>
-      <Box my={matchMD ? 0 : 1} ml={matchMD ? 1 : 0}>
-        <Button
-          disableElevation
-          color="default"
-          variant={isTheme ? "outlined" : "contained"}
-          size="small"
-          startIcon={<ArchiveIcon />}
-          className={classes.button}
-          component={Link}
-          to={"/my-courses"}
-        >
-          My Courses
-        </Button>
-      </Box>
-      <Box m={matchMD ? 0 : 1}>
-        <DarkThemeSwitch />
+      <Box>
       </Box>
     </Box>
   ) : (
@@ -120,15 +171,6 @@ const DropMenu = (props) => {
           className={classes.button}
         >
           Login
-        </Button>
-        <Button
-          color="default"
-          startIcon={<PersonAddIcon />}
-          component={Link}
-          to={"/register"}
-          className={classes.button}
-        >
-          Sign Up
         </Button>
       </ButtonGroup>
     </Box>

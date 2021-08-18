@@ -47,7 +47,7 @@ function CourseList(props) {
 
   let courseRender = courseIndex.map((tab, index) => (
       <TabPanel tabNum={tabNum} index={index} key={tab.subject}>
-        <Grid container justify="center" spacing={2}>
+        <Grid container justifyContent="center" spacing={2}>
           <CourseInfo courseList={courseList.filter((course) => {return (course.category.subject === courseIndex[index].subject)})} />
         </Grid>
       </TabPanel>
@@ -55,7 +55,7 @@ function CourseList(props) {
 
   return (
     <Fragment>
-      <Grid container justify="center">
+      <Grid container justifyContent="center">
         <GmailTabs
           value={tabNum}
           onChange={handleChange}

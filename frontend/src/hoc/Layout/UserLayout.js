@@ -4,7 +4,7 @@ import { CssBaseline } from "@material-ui/core";
 import { makeStyles, responsiveFontSizes } from "@material-ui/core/styles";
 import { SnackbarProvider } from "notistack";
 import { connect } from "react-redux";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import SideDrawer from "../../components/Navigation/SideDrawer/SideDrawer";
 import Appbar from "../../components/Navigation/Appbar/Appbar";
 
@@ -19,7 +19,7 @@ const UserLayout = (props) => {
     }
   
     const theme = responsiveFontSizes(
-      createMuiTheme({
+      createTheme({
         palette: {
           type: isTheme ? "dark" : "light",
         },

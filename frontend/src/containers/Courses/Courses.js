@@ -17,7 +17,7 @@ const Courses = (props) => {
 
   return (
     <Box>
-      <Grid container spacing={2} justify="center">
+      <Grid container spacing={2} justifyContent="center">
         <CourseInfo courseList={courseList}/>
       </Grid>
     </Box>

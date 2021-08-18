@@ -58,7 +58,7 @@ const CourseCarousel = ({ courseList }) => {
     }
 
     return (
-      <Grid container justify="center" spacing={2}>
+      <Grid container justifyContent="center" spacing={2}>
         {items}
       </Grid>
     );

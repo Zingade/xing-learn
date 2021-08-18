@@ -12,7 +12,7 @@ export const KannadaVyanjan = () => {
     ವ್ಯಂಜನಗಳು(Consonants) - 34
     </Typography>
   </Grid>
-    <Grid container spacing={2} justify="center">
+    <Grid container spacing={2} justifyContent="center">
     {vyanjanList.map((letter,index) => (
       <Grid item key={index}>
         <KanCardItem letter={letter}/>

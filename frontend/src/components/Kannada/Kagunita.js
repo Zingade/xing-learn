@@ -39,7 +39,7 @@ export const Kagunita = () => {
   {kagunitList.map((letter,index) => (
     <Grid container key={index} spacing={3}>
       <Grid item>
-          <Typography variant="h3" align="justify">
+          <Typography variant="h3" align="justifyContent">
               {letter.charecter1} + {letter.charecter2} + {(index === 0) ?<CardMedia className={classes.media} image={KombuImage} />:letter.charecter3} = {letter.charecter4}
           <IconButton size="small" aria-label="share" onClick={()=>{}}>
             <VolumeUp />
