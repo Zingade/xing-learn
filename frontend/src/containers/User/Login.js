@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Link, Button, Checkbox, FormControlLabel, Grid, makeStyles, Paper, TextField, Typography } from '@material-ui/core'
+import { Button, Grid, makeStyles, Paper, TextField } from '@material-ui/core'
 import { connect, useDispatch, useSelector } from "react-redux";
 import { withRouter } from 'react-router-dom';
 import useForm from '../../components/Resue/useForm'
@@ -16,7 +16,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#4b9cd6'
   },
   button:{
-    margin: '8px 0'
+    textTransform: "none",
+    margin: '8px 8px',
   },
   textField:{
     margin:"5px 0"
@@ -25,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 const initialLoginValues = {
   id:0,
-  userName:'',
+  loginID:'',
   password:'',
   remindMe:false,
 }
@@ -37,7 +38,7 @@ function Login(props) {
   const {loading, userInfo, error} = userSignin;
   const validate = () =>{
     let temp = {}
-    temp.userName = values.userName?"":"userName field is required"
+    temp.loginID = values.loginID?"":"Login ID field is required"
     //temp.email = (/$|.+@.+.+/).test(values.email)?"":"Email is not valid"
     temp.password = values.password?"":"Password field is required"
     setErrors({
@@ -63,8 +64,12 @@ function Login(props) {
 
   const handleSubmit = async () => {
     if (validate()){
-      await dispatch(signin(values.userName,values.password));
+      await dispatch(signin(values.loginID,values.password));
     }
+  }
+
+  const cancelSubmit = () => {
+    props.history.push("/")
   }
 
   return (
@@ -76,15 +81,15 @@ function Login(props) {
               {error&&<div style={{color:"red",margin:"10px 5px"}}>{error.response.data.msg}</div>}
             </Grid>
               <TextField 
-                label="User name:"
+                label="Login ID:"
                 variant="outlined"
-                name="userName" 
+                name="loginID" 
                 placeholder="Enter User name here.." 
-                value={values.userName}
+                value={values.loginID}
                 fullWidth
                 className={classes.textField}
                 onChange={handleInputChange}
-                {...(errors.userName && {error:true, helperText:errors.userName} )}
+                {...(errors.loginID && {error:true, helperText:errors.loginID} )}
                 />
               <TextField 
                 label="Password:" 
@@ -98,36 +103,25 @@ function Login(props) {
                 onChange={handleInputChange}
                 {...(errors.password && {error:true, helperText:errors.password} )}
                 />
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    name="remember"
-                    color="primary"
-                    value={values.remindMe}
-                    onChange={handleInputChange}
-                  />
-                }
-                label="Remember Me"
-              />
-              <Button 
+              <Grid container justify="center">
+                <Button 
                 className={classes.button} 
                 variant="contained" 
                 type="submit" 
                 color="primary" 
-                fullWidth 
+                size="small"
                 onClick={handleSubmit}>
-                Sign in
-              </Button>
-              <Typography>
-                <Link href="#" >
-                  Forgot Password?
-                </Link>
-              </Typography>
-              <Typography> Do you have an account ?
-                <Link href="/register" >
-                  Register
-                </Link>
-              </Typography>
+                  Sign in
+                </Button>
+                <Button 
+                  className={classes.button} 
+                  variant="contained" 
+                  color="primary" 
+                  size="small"
+                  onClick={cancelSubmit}>
+                  Cancel
+                </Button>
+              </Grid>
             </Paper>
         </Grid>
   )

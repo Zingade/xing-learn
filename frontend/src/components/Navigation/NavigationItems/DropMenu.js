@@ -3,7 +3,7 @@ import { connect, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 
-import { Menu, Box, useMediaQuery, MenuItem } from "@material-ui/core";
+import { Menu, Box, useMediaQuery } from "@material-ui/core";
 import { Button, ButtonGroup, IconButton } from "@material-ui/core";
 
 import MoreIcon from "@material-ui/icons/MoreVert";
@@ -60,21 +60,9 @@ const DropMenu = (props) => {
 
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(false);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleClick = () => {
+    props.history.push('/admin')
   };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-    props.history.push("/");
-  };
-
-  const handleMyStudents = () => {
-    //window.alert("My student details")
-    props.history.push('/mystudents')
-    setAnchorEl(null);
-  }
 
   const menuRender = userInfo ? (
     <Box
@@ -100,21 +88,6 @@ const DropMenu = (props) => {
             onClick={handleClick}>
           Admin
           </Button>
-          <Menu
-            id="simple-menu"
-            anchorEl={anchorEl}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-          >
-            <MenuItem 
-              onClick={handleMyStudents}
-            >
-              My Students
-            </MenuItem>
-            <MenuItem onClick={handleClose}>My account</MenuItem>
-            <MenuItem onClick={handleClose}>Logout</MenuItem>
-          </Menu>        
         </>
       )}
       {userInfo && !userInfo.isAdmin && (
@@ -209,7 +182,6 @@ const DropMenu = (props) => {
 const mapStateToProps = (state) => {
   return {
     darkTheme: state.ui.darkTheme,
-//    isAuthenticated: state.user.values.isAuthenticated,
   };
 };
 

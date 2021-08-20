@@ -1,4 +1,4 @@
-import { Button, Grid, IconButton, Link, makeStyles, Paper, TextField, Typography } from '@material-ui/core';
+import { Button, Grid, IconButton, makeStyles, Paper, TextField } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import useForm from '../../components/Resue/useForm';
@@ -10,6 +10,7 @@ import EditIcon from "@material-ui/icons/Edit";
 const initialLoginValues = {
     id:0,
     userName:'',
+    loginID:'',
     email:'',
     password:'',
     confirmPassword:'',
@@ -20,16 +21,11 @@ const useStyles = makeStyles((theme) => ({
     root:{
         margin: "1rem",
     },
-    productHeader:{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "flex-start",
-    },
     paper:{
         padding: "10px",
         width: "300px",
         height: "80vh",
-        margin:"8px auto"
+        margin:"8px auto",
     },
     avatar:{
         backgroundColor:'#4b9cd6',
@@ -46,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
   autoScroll:{
     overflowX:"auto",
+    whiteSpace: "nowrap",
   }
 }))
 
@@ -74,6 +71,7 @@ function UserList(props) {
         setModalVisible(true);
         values.id = user._id;
         values.userName = user.name;
+        values.loginID = user.loginID;
         values.email=user.email;
         values.password = '';
         values.confirmPassword = '';
@@ -90,6 +88,7 @@ function UserList(props) {
       const validate = () =>{
         let temp = {}
         temp.userName = values.userName?"":"userName field is required"
+        temp.loginID = values.loginID?"":"user ID field is required"
         temp.email = values.email?((/$^|.+@.+..+/).test(values.email)?"":"Email is not valid"):"email field is required"
         temp.password = values.password?"":"Password field is required"
         temp.confirmPassword = (values.password === values.confirmPassword)?"":"Confirm Password should be same as password field"
@@ -103,7 +102,7 @@ function UserList(props) {
     const submitHandler = (e) => {
         e.preventDefault();
         if (validate()){
-            dispatch(saveUser({_id:values.id, name:values.userName, email:values.email, password:values.password, phone:values.phone}));
+            dispatch(saveUser({_id:values.id, name:values.userName, loginID:values.loginID, email:values.email, password:values.password, phone:values.phone}));
         }
     }
 
@@ -111,11 +110,8 @@ function UserList(props) {
         dispatch(deleteUser(userId));
     }
     
-    return  <div className={classes.root}> 
-    {!modalVisible && <div className={classes.productHeader}>
-        <h2>Users</h2>
-        <Button className={classes.button} variant="contained" color="primary" onClick ={()=>openModal({name:'',email:'',password:'',phone:''})}>Add New User</Button>
-    </div>}
+    return  <> 
+    <div className={classes.root}> 
     {modalVisible && 
       <Grid container>
       <Paper elevation={10} className={classes.paper}>
@@ -133,6 +129,17 @@ function UserList(props) {
                   className={classes.textField}
                   onChange={handleInputChange}
                   {...(errors.userName && {error:true, helperText:errors.userName} )}
+                  />
+                <TextField 
+                  variant="outlined"
+                  label="Login ID" 
+                  name="loginID"
+                  value={values.loginID} 
+                  placeholder="Enter Login ID here.."
+                  fullWidth
+                  className={classes.textField}
+                  onChange={handleInputChange}
+                  {...(errors.loginID && {error:true, helperText:errors.loginID} )}
                   />
                 <TextField 
                   variant="outlined"
@@ -187,9 +194,6 @@ function UserList(props) {
                 <Button className={classes.button} variant="contained" color="primary" onClick={()=>{setModalVisible(false)}} >
                     Cencel
                 </Button>
-                <Typography> Already have an account?
-                  <Link href="/login">Signin</Link>
-                </Typography>
             </Grid>
         </Paper>
     </Grid>
@@ -198,8 +202,9 @@ function UserList(props) {
         <table className={classes.table}>
             <thead>
                 <tr>
-                    <th>#</th>
+                    <th>Sl no</th>
                     <th>Name</th>
+                    <th>Login ID</th>
                     <th>email</th>
                     <th>Phone</th>
                     <th>Edit</th>
@@ -211,6 +216,7 @@ function UserList(props) {
               <tr key={user._id}>
                 <td>{count+1}</td>
                 <td>{user.name}</td>
+                <td>{user.loginID}</td>
                 <td>{user.email}</td>
                 <td>{user.phone}</td>
                 <td>
@@ -230,6 +236,10 @@ function UserList(props) {
     </div>
     }
     </div>
+    {!modalVisible && <Grid container justifyContent="center">
+        <Button className={classes.button} size="small" variant="contained" color="primary" onClick ={()=>openModal({name:'',email:'',password:'',phone:''})}>Add New User</Button>
+    </Grid>}
+    </>
 }
 
 export default UserList;

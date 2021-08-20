@@ -7,7 +7,7 @@ import KannadaSwar from './components/Kannada/KannadaSwar'
 import UserLayout from "./hoc/Layout/UserLayout";
 import Courses from "./containers/Courses/Courses";
 import Login from './containers/User/Login'
-import UserList from "./containers/User/UserList";
+import AdminScreen from "./components/Admin/AdminScreen";
 
 const RouteUser = ({ Component, ...props }) => {
   return (
@@ -32,7 +32,7 @@ function App() {
         <RouteUser path="/" exact Component={Dashboard} />
         <RouteUser path="/courses" exact Component={Courses} />
         <RouteUser path="/login" exact Component={Login} />
-        <RouteUser path="/mystudents" exact Component={UserList} />
+        <RouteUser path="/admin" exact Component={AdminScreen} />
         <RouteUser path="/kannadaswar" exact Component={KannadaSwar} />
         <RouteUser path="/courses/:id" Component={CourseDetail} />
       </Switch>

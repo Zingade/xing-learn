@@ -1,4 +1,4 @@
-import { USER_DELETE_FAIL, USER_DELETE_REQUEST, USER_DELETE_SUCCESS, USER_LIST_FAIL, USER_LIST_REQUEST, USER_LIST_SUCCESS, USER_LOGOUT, USER_REGISTER_FAIL, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS, USER_SAVE_FAIL, USER_SAVE_REQUEST, USER_SAVE_SUCCESS, USER_SIGNIN_FAIL, USER_SIGNIN_REQUEST, USER_SIGNIN_SUCCESS } from "./UserTypes";
+import { USER_DELETE_FAIL, USER_DELETE_REQUEST, USER_DELETE_SUCCESS, USER_LIST_FAIL, USER_LIST_REQUEST, USER_LIST_SUCCESS, USER_LOGOUT, USER_SAVE_FAIL, USER_SAVE_REQUEST, USER_SAVE_SUCCESS, USER_SIGNIN_FAIL, USER_SIGNIN_REQUEST, USER_SIGNIN_SUCCESS } from "./UserTypes";
 
 function userListReducer(state = {users:[]}, action){
     switch(action.type){
@@ -55,19 +55,5 @@ function userSigninReducer(state = {}, action){
   }
 }
 
-function userRegisterReducer(state = {}, action){
-  switch(action.type){
-      case USER_REGISTER_REQUEST:
-          return {loading: true};
-      case USER_REGISTER_SUCCESS:
-          return {loading: false};
-      case USER_REGISTER_FAIL:
-          return {loading: false, error:action.payload};
-      default:
-          return state;
-  }
-}
-
-
-  export {userSaveReducer, userDeleteReducer, userListReducer, userSigninReducer, userRegisterReducer};  
+export {userSaveReducer, userDeleteReducer, userListReducer, userSigninReducer};  
   

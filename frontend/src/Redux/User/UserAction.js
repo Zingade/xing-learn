@@ -47,25 +47,15 @@ const deleteUser = (userId) => async (dispatch, getState) => {
   }
 } 
 
-const signin = (name,password) => async (dispatch) => {
-  dispatch({type: actionTypes.USER_SIGNIN_REQUEST, payload:{name, password}});
+const signin = (loginID,password) => async (dispatch) => {
+  dispatch({type: actionTypes.USER_SIGNIN_REQUEST, payload:{loginID, password}});
   try {
-      const {data} = await Axios.post("/api/users/signin",{name,password});
+      const {data} = await Axios.post("/api/users/signin",{loginID,password});
       dispatch({type:actionTypes.USER_SIGNIN_SUCCESS, payload:data});
       localStorage.setItem('userInfo', JSON.stringify(data));
     } catch (error) {
       console.log(error)
       dispatch({type:actionTypes.USER_SIGNIN_FAIL, payload:error});
-  }
-}
-
-const register = (name, email,password,phone) => async (dispatch) => {
-  dispatch({type: actionTypes.USER_REGISTER_REQUEST, payload:{name, email, password, phone}});
-  try {
-      await Axios.post("/api/users/register",{name, email, password, phone});
-      dispatch({type:actionTypes.USER_REGISTER_SUCCESS});
-    } catch (error) {
-      dispatch({type:actionTypes.USER_REGISTER_FAIL, payload:error});
   }
 }
 
@@ -75,4 +65,4 @@ const logout = () => (dispatch) => {
 }
 
 
-export {listUsers, signin, logout, register,deleteUser, saveUser}
+export {listUsers, signin, logout, deleteUser, saveUser}

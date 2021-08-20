@@ -23,11 +23,11 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post("/", isAuth, isAdmin, async (req, res)=>{
-    const userExists = await User.findOne({
-        name:req.body.name
+    const loginIDExists = await User.findOne({
+        name:req.body.loginID
     });
-    if (userExists) {
-        return res.status(404).send({msg: 'User name already exists !!'})
+    if (loginIDExists) {
+        return res.status(404).send({msg: 'User login ID already exists !!'})
     }
     const emailExists = await User.findOne({
         email:req.body.email
@@ -39,6 +39,7 @@ router.post("/", isAuth, isAdmin, async (req, res)=>{
     var user= new User();
     user.name = req.body.name;
     user.email = req.body.email;
+    user.loginID = req.body.loginID;
     user.phone = req.body.phone;
     user.password = bcrypt.hashSync(req.body.password,bcrypt.genSaltSync(5),null);
 
@@ -48,6 +49,7 @@ router.post("/", isAuth, isAdmin, async (req, res)=>{
             _id:newUser._id,
             name:newUser.name,
             email:newUser.email,
+            loginID:newUser.loginID,
             phone:newUser.phone,
             isAdmin:newUser.isAdmin,
             token: getToken(newUser)
@@ -66,6 +68,7 @@ router.put('/:id', isAuth, async (req, res) => {
     if (user) {
       user.name = req.body.name || user.name;
       user.email = req.body.email || user.email;
+      user.loginID = req.body.loginID || user.loginID;
       user.phone = req.body.phone || user.phone;
       user.password = bcrypt.hashSync(req.body.password,bcrypt.genSaltSync(5),null);
       const updatedUser = await user.save();
@@ -73,6 +76,7 @@ router.put('/:id', isAuth, async (req, res) => {
         _id: updatedUser.id,
         name: updatedUser.name,
         email: updatedUser.email,
+        loginID: updatedUser.loginID,
         phone: updatedUser.phone,
         isAdmin: updatedUser.isAdmin,
         token: getToken(updatedUser),
@@ -96,10 +100,10 @@ router.put('/:id', isAuth, async (req, res) => {
 
 router.post('/signin', async (req, res) => {
     const signinUser = await User.findOne({
-        name:req.body.name
+        loginID:req.body.loginID
     });
     if (!signinUser) {
-        return res.status(404).send({msg: 'No user found'})
+        return res.status(404).send({msg: 'No User ID found'})
     }
     if (!bcrypt.compareSync(req.body.password,signinUser.password)) {
         return res.status(404).send({msg: 'Wrong password'})
@@ -109,6 +113,7 @@ router.post('/signin', async (req, res) => {
             _id:signinUser._id,
             name:signinUser.name,
             email:signinUser.email,
+            loginID:signinUser.loginID,
             phone:signinUser.phone,
             isAdmin:signinUser.isAdmin,
             token: getToken(signinUser)
@@ -116,42 +121,6 @@ router.post('/signin', async (req, res) => {
     }
     else {
         return res.status(401).send({msg: 'Invalid e-mail or password'})
-    }
-})
-
-router.post('/register', async (req, res) => {
-    const userExists = await User.findOne({
-        name:req.body.name
-    });
-    if (userExists) {
-        return res.status(404).send({msg: 'User name already exists !!'})
-    }
-    const emailExists = await User.findOne({
-        email:req.body.email
-    });
-    if (emailExists) {
-        return res.status(404).send({msg: 'email already exists !!'})
-    }
-
-    var user= new User();
-    user.name = req.body.name;
-    user.email = req.body.email;
-    user.phone = req.body.phone;
-    user.password = bcrypt.hashSync(req.body.password,bcrypt.genSaltSync(5),null);
-
-    const newUser = await user.save();
-    if(newUser){
-        res.send({
-            _id:newUser._id,
-            name:newUser.name,
-            email:newUser.email,
-            phone:newUser.phone,
-            isAdmin:newUser.isAdmin,
-            token: getToken(newUser)
-        })
-    }
-    else {
-        res.status(401).send({msg: 'Invalid User Data'})
     }
 })
 
@@ -168,6 +137,7 @@ router.post('/createadmin', async (req, res) => {
                 var user= new User();
                 user.name = req.body.name;
                 user.email = req.body.email;
+                user.loginID = req.body.loginID;
                 user.phone = req.body.phone;
                 user.password = bcrypt.hashSync(req.body.password,bcrypt.genSaltSync(5),null);
                 user.isAdmin = true;

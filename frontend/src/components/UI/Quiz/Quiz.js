@@ -9,8 +9,7 @@ const Quiz = ({aQuestions, shuffleQuestions}) => {
   const [options, setOptions] = useState();
   const [currQues, setCurrQues] = useState(0);
   const [score, setScore] = useState(0);
-  const [questions, setQuestions] = useState(aQuestions);
-  setQuestions(questions);
+  const questions = aQuestions;
 
   useEffect(() => {
     setOptions(
