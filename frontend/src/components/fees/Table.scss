@@ -1,0 +1,159 @@
+.Level {
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+
+  .level-item {
+    display: flex;
+    flex-direction: column;
+    width: calc(25%);
+
+    & > * {
+      align-self: center;
+    }
+  }
+
+  h1,
+  h5 {
+    margin-bottom: 0;
+  }
+
+  h1 {
+    font-size:20px;
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size:15px;
+    margin-bottom: -0.5rem;
+  }
+
+  h4 {
+    font-size:12px;
+    margin-bottom: -0.5rem;
+  }
+
+  h5 {
+    font-weight: 600;
+    overflow-wrap: break-word;
+    text-align: center;
+    width: 100%;
+  }
+
+  .is-Overall {
+    h1,
+    h5 {
+      color: #ff073a;
+    }
+
+    h4,
+    h3 {
+      color: #ff073a99;
+    }
+  }
+
+  .is-Cash {
+    h1,
+    h5 {
+      color: #007bff;
+    }
+
+    h4,
+    h3 {
+      color: #007bff99;
+    }
+  }
+
+  .is-GPay {
+    h1,
+    h5 {
+      color: #28a745;
+    }
+
+    h4,
+    h3 {
+      color: #28a74599;
+    }
+  }
+}
+
+.Home1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  
+    .home-left {
+      width: 20rem;
+      margin-right: 1rem;
+    }
+  }
+    
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .table {
+    display: inline-grid;
+    font-size: 12px;
+
+   .row {
+    display: contents;
+
+    &:nth-child(odd) {
+      .cell {
+        background: #6c757d10;
+      }
+    }
+
+    &.is-highlighted {
+      .cell {
+        background: #edeeef !important;
+      }
+    }
+
+    .cell {
+      align-items: center;
+      color: #6c757d;
+      margin-bottom: 0.25rem;
+      padding: 0.5rem;
+
+      &:first-child {
+        background: #f6f6f7;
+        flex-basis: 7rem;
+        flex-grow: 0;
+        flex-shrink: 0;
+        justify-content: space-between;
+        left: 0;
+        position: sticky;
+        z-index: 11;
+      }
+
+      &.statistic {
+        align-items: flex-end;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        .total {
+          font-size: 12px;
+        }
+      }
+      &.heading {
+        background: #f6f6f7;
+        font-size: 12px;
+        font-weight: 900;
+        text-align: center;
+        &:hover {
+          background: #edeeef !important;
+        }
+      }
+
+      .expense-name{
+        font-size: 12px;
+        font-weight: 600;
+      }
+    }
+  }
+} 

@@ -18,9 +18,6 @@ const initialLoginValues = {
   }
   
 const useStyles = makeStyles((theme) => ({
-    root:{
-        margin: "1rem",
-    },
     paper:{
         padding: "10px",
         width: "300px",
@@ -68,7 +65,6 @@ function UserList(props) {
     }, [successSave,successDelete,dispatch]);
 
     const openModal = (user) => {
-        setModalVisible(true);
         values.id = user._id;
         values.userName = user.name;
         values.loginID = user.loginID;
@@ -76,6 +72,7 @@ function UserList(props) {
         values.password = '';
         values.confirmPassword = '';
         values.phone = user.phone;
+        setModalVisible(true);
     }
 
     const {
@@ -111,7 +108,7 @@ function UserList(props) {
     }
     
     return  <> 
-    <div className={classes.root}> 
+    <div> 
     {modalVisible && 
       <Grid container>
       <Paper elevation={10} className={classes.paper}>
@@ -237,7 +234,7 @@ function UserList(props) {
     }
     </div>
     {!modalVisible && <Grid container justifyContent="center">
-        <Button className={classes.button} size="small" variant="contained" color="primary" onClick ={()=>openModal({name:'',email:'',password:'',phone:''})}>Add New User</Button>
+        <Button className={classes.button} size="small" variant="contained" color="primary" onClick ={()=>openModal({name:'',loginID:'',email:'',password:'',phone:''})}>Add New User</Button>
     </Grid>}
     </>
 }

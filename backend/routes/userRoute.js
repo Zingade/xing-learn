@@ -42,6 +42,7 @@ router.post("/", isAuth, isAdmin, async (req, res)=>{
     user.loginID = req.body.loginID;
     user.phone = req.body.phone;
     user.password = bcrypt.hashSync(req.body.password,bcrypt.genSaltSync(5),null);
+    user.fees = [{payMethod:"0", amount:"0"},{payMethod:"0", amount:"0"},{payMethod:"0", amount:"0"},{payMethod:"0", amount:"0"},{payMethod:"0", amount:"0"},{payMethod:"0", amount:"0"},{payMethod:"0", amount:"0"},{payMethod:"0", amount:"0"},{payMethod:"0", amount:"0"},{payMethod:"0", amount:"0"},{payMethod:"0", amount:"0"},{payMethod:"0", amount:"0"}]
 
     const newUser = await user.save();
     if(newUser){
@@ -52,6 +53,7 @@ router.post("/", isAuth, isAdmin, async (req, res)=>{
             loginID:newUser.loginID,
             phone:newUser.phone,
             isAdmin:newUser.isAdmin,
+            fees:newUser.fees,
             token: getToken(newUser)
         })
     }
@@ -71,6 +73,7 @@ router.put('/:id', isAuth, async (req, res) => {
       user.loginID = req.body.loginID || user.loginID;
       user.phone = req.body.phone || user.phone;
       user.password = bcrypt.hashSync(req.body.password,bcrypt.genSaltSync(5),null);
+      user.fees = req.body.fees || user.fees;
       const updatedUser = await user.save();
       res.send({
         _id: updatedUser.id,
@@ -79,6 +82,7 @@ router.put('/:id', isAuth, async (req, res) => {
         loginID: updatedUser.loginID,
         phone: updatedUser.phone,
         isAdmin: updatedUser.isAdmin,
+        fees:updateUser.fees,
         token: getToken(updatedUser),
       });
     } else {
@@ -116,6 +120,7 @@ router.post('/signin', async (req, res) => {
             loginID:signinUser.loginID,
             phone:signinUser.phone,
             isAdmin:signinUser.isAdmin,
+            fees:signinUser.fees,
             token: getToken(signinUser)
         })
     }
@@ -141,6 +146,7 @@ router.post('/createadmin', async (req, res) => {
                 user.phone = req.body.phone;
                 user.password = bcrypt.hashSync(req.body.password,bcrypt.genSaltSync(5),null);
                 user.isAdmin = true;
+                user.fees = {};
                 const newUSer = await user.save();
                 res.send(newUSer);
             }

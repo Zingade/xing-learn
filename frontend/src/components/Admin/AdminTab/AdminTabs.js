@@ -1,12 +1,21 @@
 import React, { useState, Fragment } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { GmailTabs, GmailTabItem } from "@mui-treasury/components/tabs/gmail";
-import { Box, Paper } from "@material-ui/core";
+import { Box, Card, Grid, Paper } from "@material-ui/core";
 import { MenuBook, PeopleAlt, Payment } from "@material-ui/icons";
 import UserList from "../../../containers/User/UserList";
+import { Suspense } from "react";
+import Table from "../../fees/Table";
 
 
 const useStyles = makeStyles((theme) => ({
+  assetcard:{
+    margin:"2px 2px",
+    width: "100%",
+    height:"auto",
+    textAlign:"center",
+    borderRadius:"20px"    
+  },
   gmailTabs: {
     backgroundColor: "inherit",
   },
@@ -59,19 +68,19 @@ const AdminTabs = () => {
       >
         <GmailTabItem
           icon={<PeopleAlt />}
-          label={"User Management"}
+          label={"User Mgmt"}
           {...a11yProps(0)}
           classes={{ wrapper: classes.wrapper }}
         />
         <GmailTabItem
           icon={<Payment />}
-          label={"Fees Management"}
+          label={"Fees Mgmt"}
           {...a11yProps(1)}
           classes={{ wrapper: classes.wrapper }}
         />
         <GmailTabItem
           icon={<MenuBook />}
-          label={"Course Assignment"}
+          label={"Course Assign"}
           {...a11yProps(2)}
           classes={{ wrapper: classes.wrapper }}
         />
@@ -80,11 +89,21 @@ const AdminTabs = () => {
       <Box className={classes.marginL} ml={3}>
         <Paper elevation={0} >
           <TabPanel tabNum={tabNum} index={0}>
-            <UserList />
+            <Grid item component={Card} elevation={10} className={classes.assetcard}>
+              <UserList />
+            </Grid>
           </TabPanel>
 
           <TabPanel tabNum={tabNum} index={1}>
-            Panel 2 Contents
+            <Grid item component={Card} elevation={10} className={classes.assetcard}>
+            <div className="Home1">
+            <div className="home-left">
+                <Suspense fallback={<div />}>
+                <Table/>
+                </Suspense>
+            </div>
+            </div>
+            </Grid>
           </TabPanel>
 
           <TabPanel tabNum={tabNum} index={2}>
