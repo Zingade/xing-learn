@@ -7,10 +7,20 @@ import { listUsers, saveUser } from '../../Redux/User/UserAction';
 import {STUDENT_MAPPING, summaryFees} from './CommonConstants'
 import {capitalizeCustom} from './CommonFunctions'
 import Level from './Level';
+import { makeStyles } from '@material-ui/core';
 
 // eslint-disable-next-line
 
 const Row = lazy(() => import('./Row'));
+
+const useStyles = makeStyles((theme) => ({
+  table:{
+    width: "100%",
+  },
+  autoScroll:{
+    overflowX:"auto",
+  }
+}));
 
 
 function Table() {
@@ -23,6 +33,8 @@ function Table() {
   const {success: successDelete} = userDelete;
   const dispatch = useDispatch();
   const grandTotal = [0,0,0,0,0,0,0,0,0,0,0,0];
+  const classes = useStyles()
+  const  studentList = users.filter((stud)=>{return (stud.isAdmin === false)});
 
   useEffect(()=>{
     if(successSave){
@@ -82,46 +94,47 @@ function Table() {
         <div>
           <Level data={summaryFees}/>
         </div>
-        <div className="table-container">
-        <div
-          className="table fadeInUp"
-          style={{
-            gridTemplateColumns: `repeat(${13}, auto)`,
-          }}
-        >
-          {findGrandTotal()}
-          <div className="row heading">
-            <div className="cell heading">
-              <div>Student Name</div>
+        <div className={classes.table}>
+          <div className={classes.autoScroll}>
+            <div
+            className="table fadeInUp"
+            style={{
+              gridTemplateColumns: `repeat(${13}, auto)`,
+            }}
+            >
+            {findGrandTotal()}
+              <div className="row heading">
+                <div className="cell heading">
+                  <div>Student Name</div>
+                </div>
+                {MONTH_COLUMNS.map((month,count) => (
+                  <HeaderCell
+                    key={count}
+                    value={capitalizeCustom(STUDENT_MAPPING[month].displayName)}
+                  />
+                ))}
+              </div>
+              {studentList.map((user,count) => (
+                <Row
+                  key={count}
+                  data={user}
+                  updateDatabase={updateDatabase}
+                />)
+              )}
+              <div className="row heading">
+                <div className="cell heading">
+                  <div>Grand Total</div>
+                </div>
+                {grandTotal.map((value,count) => (
+                    <HeaderCell
+                    key={count}
+                    {...{value}}
+                    />
+                ))}
+              </div>
             </div>
-            {MONTH_COLUMNS.map((month,count) => (
-              <HeaderCell
-                key={count}
-                value={capitalizeCustom(STUDENT_MAPPING[month].displayName)}
-              />
-            ))}
-          </div>
-          {users.map((user,count) => (
-            (!user.isAdmin)?
-              (<Row
-              key={count}
-              data={user}
-              updateDatabase={updateDatabase}
-              />):(<></>)
-          ))}
-          <div className="row heading">
-            <div className="cell heading">
-              <div>Grand Total</div>
-            </div>
-            {grandTotal.map((value,count) => (
-                <HeaderCell
-                key={count}
-                {...{value}}
-                />
-            ))}
           </div>
         </div>
-      </div>
       </>
     )}
     </>

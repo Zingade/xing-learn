@@ -7,7 +7,7 @@ function Row(props) {
     <>
       <div className='row'>
         <div className="cell">
-          <div className="expense-name">
+          <div className="month-name">
             {data.name}
           </div>
         </div>

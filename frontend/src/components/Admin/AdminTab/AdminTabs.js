@@ -90,13 +90,9 @@ const AdminTabs = () => {
         <Paper elevation={0} >
           <TabPanel tabNum={tabNum} index={0}>
             <Grid item component={Card} elevation={10} className={classes.assetcard}>
-            <div className="Home1">
-            <div className="home-left">
-                <Suspense fallback={<div />}>
-                <Table/>
-                </Suspense>
-            </div>
-            </div>
+              <Suspense fallback={<div />}>
+              <Table/>
+              </Suspense>
             </Grid>
           </TabPanel>
 

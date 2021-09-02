@@ -2,9 +2,11 @@ import { Button, Grid, IconButton, makeStyles, Paper, TextField } from '@materia
 import React, { useEffect, useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import useForm from '../../components/Resue/useForm';
-import { deleteUser, listUsers, saveUser } from '../../Redux/User/UserAction';
-import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
+import { /*deleteUser,*/ listUsers, saveUser } from '../../Redux/User/UserAction';
+//import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import EditIcon from "@material-ui/icons/Edit";
+
+const tempPassword = process.env.TEMP_PASSWORD || 'undukushu';
 
 const initialLoginValues = {
     id:0,
@@ -53,7 +55,7 @@ function UserList(props) {
     const userDelete = useSelector(state=>state.userDelete);
     const {success: successDelete} = userDelete;
     const dispatch = useDispatch();
-
+    const  studentList = users.filter((stud)=>{return (stud.isAdmin === false)});
     useEffect(()=>{
         if(successSave){
             setModalVisible(false);
@@ -68,8 +70,8 @@ function UserList(props) {
         values.userName = user.name;
         values.loginID = user.loginID;
         values.email=user.email;
-        values.password = '';
-        values.confirmPassword = '';
+        values.password = (user._id)?tempPassword:'';
+        values.confirmPassword = (user._id)?tempPassword:'';
         values.phone = user.phone;
         setModalVisible(true);
     }
@@ -98,14 +100,14 @@ function UserList(props) {
     const submitHandler = (e) => {
         e.preventDefault();
         if (validate()){
-            dispatch(saveUser({_id:values.id, name:values.userName, loginID:values.loginID, email:values.email, password:values.password, phone:values.phone}));
+          dispatch(saveUser({_id:values.id, name:values.userName, loginID:values.loginID, email:values.email, password:values.password, phone:values.phone}));
+          setModalVisible(false)
         }
-        setModalVisible(false)
     }
 
-    const deleteHandler = (userId) => {
+/*    const deleteHandler = (userId) => {
         dispatch(deleteUser(userId));
-    }
+    }*/
     
     return  <> 
     <div> 
@@ -210,7 +212,7 @@ function UserList(props) {
                 </tr>
             </thead>
             <tbody>
-            {users.map((user,count) => (
+            {studentList.map((user,count) => (
               <tr key={user._id}>
                 <td>{count+1}</td>
                 <td>{user.name}</td>

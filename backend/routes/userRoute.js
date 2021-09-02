@@ -2,6 +2,7 @@ const express = require('express');
 const User = require('../models/userModel')
 const {getToken, isAuth, isAdmin} = require('../util');
 var bcrypt = require('bcrypt-nodejs');
+const tempPassword = process.env.TEMP_PASSWORD || 'undukushu';
 
 const router = express.Router();
 
@@ -72,7 +73,9 @@ router.put('/:id', isAuth, async (req, res) => {
       user.email = req.body.email || user.email;
       user.loginID = req.body.loginID || user.loginID;
       user.phone = req.body.phone || user.phone;
-      user.password = bcrypt.hashSync(req.body.password,bcrypt.genSaltSync(5),null);
+      if (req.body.password !== tempPassword) {
+        user.password = bcrypt.hashSync(req.body.password,bcrypt.genSaltSync(5),null);
+      }
       user.fees = req.body.fees || user.fees;
       const updatedUser = await user.save();
       res.send({
@@ -82,7 +85,7 @@ router.put('/:id', isAuth, async (req, res) => {
         loginID: updatedUser.loginID,
         phone: updatedUser.phone,
         isAdmin: updatedUser.isAdmin,
-        fees:updateUser.fees,
+        fees:updatedUser.fees,
         token: getToken(updatedUser),
       });
     } else {
