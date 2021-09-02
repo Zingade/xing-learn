@@ -55,12 +55,19 @@ const DropMenu = (props) => {
   
   const handleLogout = () => {
     dispatch(logout());
+    setMobileMoreAnchorEl(false)
     props.history.push("/");
+  }
+
+  const handleLogin = () => {
+    setMobileMoreAnchorEl(false)
+    props.history.push("/login");
   }
 
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(false);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   const handleClick = () => {
+    setMobileMoreAnchorEl(false)
     props.history.push('/admin')
   };
 
@@ -139,8 +146,7 @@ const DropMenu = (props) => {
         <Button
           color="primary"
           startIcon={<VpnKeyIcon />}
-          component={Link}
-          to={"/login"}
+          onClick={handleLogin}
           className={classes.button}
         >
           Login

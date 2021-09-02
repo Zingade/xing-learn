@@ -6,7 +6,6 @@ import { deleteUser, listUsers, saveUser } from '../../Redux/User/UserAction';
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import EditIcon from "@material-ui/icons/Edit";
 
-
 const initialLoginValues = {
     id:0,
     userName:'',
@@ -101,6 +100,7 @@ function UserList(props) {
         if (validate()){
             dispatch(saveUser({_id:values.id, name:values.userName, loginID:values.loginID, email:values.email, password:values.password, phone:values.phone}));
         }
+        setModalVisible(false)
     }
 
     const deleteHandler = (userId) => {
@@ -116,7 +116,8 @@ function UserList(props) {
             <h2>{(values.id)?"Update User":"Create New User"}</h2>
                 {loading&&<div>Loading...</div>}
                 {error&&<div style={{color:"red",margin:"10px 5px"}}>{error.response.data.msg}</div>}
-                <TextField 
+                <TextField
+                  autoFocus 
                   variant="outlined"
                   label="Username" 
                   name="userName"
@@ -205,7 +206,7 @@ function UserList(props) {
                     <th>email</th>
                     <th>Phone</th>
                     <th>Edit</th>
-                    <th>Delete</th>
+                   {/* <th>Delete</th>*/}
                 </tr>
             </thead>
             <tbody>
@@ -221,11 +222,11 @@ function UserList(props) {
                     <EditIcon />
                   </IconButton>
                 </td>
-                <td>
+{/*}                <td>
                   <IconButton onClick={()=>deleteHandler(user._id)} color="secondary" aria-label="upload picture" component="span">
                     <DeleteForeverIcon />
                   </IconButton>
-                </td>
+            </td>*/}
               </tr>
             ))}
             </tbody>
@@ -234,7 +235,7 @@ function UserList(props) {
     }
     </div>
     {!modalVisible && <Grid container justifyContent="center">
-        <Button className={classes.button} size="small" variant="contained" color="primary" onClick ={()=>openModal({name:'',loginID:'',email:'',password:'',phone:''})}>Add New User</Button>
+        <Button className={classes.button} size="small" variant="contained" color="primary" onClick ={()=>openModal({name:'',loginID:'',email:'',password:'',confirmPassword:'', phone:''})}>Add New User</Button>
     </Grid>}
     </>
 }

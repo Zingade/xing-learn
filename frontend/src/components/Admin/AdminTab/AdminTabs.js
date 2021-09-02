@@ -68,13 +68,13 @@ const AdminTabs = () => {
       >
         <GmailTabItem
           icon={<PeopleAlt />}
-          label={"User Mgmt"}
+          label={"Fees Mgmt"}
           {...a11yProps(0)}
           classes={{ wrapper: classes.wrapper }}
         />
         <GmailTabItem
           icon={<Payment />}
-          label={"Fees Mgmt"}
+          label={"User Mgmt"}
           {...a11yProps(1)}
           classes={{ wrapper: classes.wrapper }}
         />
@@ -90,12 +90,6 @@ const AdminTabs = () => {
         <Paper elevation={0} >
           <TabPanel tabNum={tabNum} index={0}>
             <Grid item component={Card} elevation={10} className={classes.assetcard}>
-              <UserList />
-            </Grid>
-          </TabPanel>
-
-          <TabPanel tabNum={tabNum} index={1}>
-            <Grid item component={Card} elevation={10} className={classes.assetcard}>
             <div className="Home1">
             <div className="home-left">
                 <Suspense fallback={<div />}>
@@ -103,6 +97,12 @@ const AdminTabs = () => {
                 </Suspense>
             </div>
             </div>
+            </Grid>
+          </TabPanel>
+
+          <TabPanel tabNum={tabNum} index={1}>
+            <Grid item component={Card} elevation={10} className={classes.assetcard}>
+              <UserList />
             </Grid>
           </TabPanel>
 

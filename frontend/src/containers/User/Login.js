@@ -103,7 +103,7 @@ function Login(props) {
                 onChange={handleInputChange}
                 {...(errors.password && {error:true, helperText:errors.password} )}
                 />
-              <Grid container justify="center">
+              <Grid container justifyContent="center">
                 <Button 
                 className={classes.button} 
                 variant="contained" 

@@ -23,7 +23,7 @@ const useStyles = makeStyles({
   },
   cash:{
     fontSize: "14px",
-    color:"black",
+    color:"blue",
   },
   gpay:{
     fontSize: "14px",
@@ -95,6 +95,7 @@ const classes = useStyles()
         <DialogContent>
           <TextField
             autoFocus
+            onFocus={event => {event.target.select()}}
             variant="outlined"
             placeholder="Enter Amount Paid here.." 
             margin="dense"
