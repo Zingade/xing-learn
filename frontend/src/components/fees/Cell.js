@@ -21,6 +21,10 @@ const useStyles = makeStyles({
     flexDirection: "column",
     justifyContent: "center",
   },
+  dialog:{
+    position: 'absolute',
+    top: 10
+  },
   cash:{
     fontSize: "14px",
     color:"blue",
@@ -90,7 +94,7 @@ const classes = useStyles()
           formatNumberCustom(total, 'int')
         }
       </div>
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={open} onClose={handleClose} classes={{paper: classes.dialog}}>
         <DialogTitle >{values.name}'s {values.monthDisplay} Payment</DialogTitle>
         <DialogContent>
           <TextField
