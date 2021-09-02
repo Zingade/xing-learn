@@ -95,11 +95,10 @@ function Table() {
               <div>Student Name</div>
             </div>
             {MONTH_COLUMNS.map((month,count) => (
-              <div key = {count}>
               <HeaderCell
+                key={count}
                 value={capitalizeCustom(STUDENT_MAPPING[month].displayName)}
               />
-              </div>
             ))}
           </div>
           {users.map((user,count) => (
@@ -115,11 +114,10 @@ function Table() {
               <div>Grand Total</div>
             </div>
             {grandTotal.map((value,count) => (
-              <div key={count}> 
                 <HeaderCell
-                  {...{value}}
+                key={count}
+                {...{value}}
                 />
-              </div>
             ))}
           </div>
         </div>
