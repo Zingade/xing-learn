@@ -8,6 +8,7 @@ var userSchema = new mongoose.Schema({
     phone:{type:String, required:true},
     isAdmin:{type:Boolean, required:true, default:false},
     fees:[{payMethod: {type:String}, amount: {type:String}}],
+    batches:[{isBatch: {type:Boolean, default:false}}],
 });
 
 module.exports = mongoose.model("User", userSchema);

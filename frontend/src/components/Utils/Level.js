@@ -1,6 +1,6 @@
 import './Table.scss';
-import {FEES_SUMMARY, FEES_DISPLAY} from '../fees/CommonConstants'
-import {capitalizeCustom, formatNumberCustom} from '../fees/CommonFunctions'
+import {FEES_SUMMARY, FEES_DISPLAY} from '../Utils/CommonConstants'
+import {capitalizeCustom, formatNumberCustom} from '../Utils/CommonFunctions'
   
 
 

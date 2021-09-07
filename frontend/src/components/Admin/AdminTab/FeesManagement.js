@@ -1,17 +1,17 @@
 import { lazy, useEffect } from 'react';
-import HeaderCell from './HeaderCell';
-import {MONTH_COLUMNS} from './CommonConstants'
-import './Table.scss'
+import HeaderCell from '../../Utils/HeaderCell';
+import {MONTH_COLUMNS} from '../../Utils/CommonConstants'
+import '../../Utils/Table.scss'
 import { useDispatch, useSelector } from 'react-redux';
-import { listUsers, saveUser } from '../../Redux/User/UserAction';
-import {STUDENT_MAPPING, summaryFees} from './CommonConstants'
-import {capitalizeCustom} from './CommonFunctions'
-import Level from './Level';
+import { listUsers, saveUser } from '../../../Redux/User/UserAction';
+import {STUDENT_MAPPING, summaryFees} from '../../Utils/CommonConstants'
+import {capitalizeCustom} from '../../Utils/CommonFunctions'
+import Level from '../../Utils/Level';
 import { makeStyles } from '@material-ui/core';
 
 // eslint-disable-next-line
 
-const Row = lazy(() => import('./Row'));
+const FeesRow = lazy(() => import('../../Utils/FeesRow'));
 
 const useStyles = makeStyles((theme) => ({
   table:{
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function Table() {
+function FeesManagement() {
 
   const userList = useSelector(state=>state.userList);
   const {loading, users, error} = userList;
@@ -115,7 +115,7 @@ function Table() {
                 ))}
               </div>
               {studentList.map((user,count) => (
-                <Row
+                <FeesRow
                   key={count}
                   data={user}
                   updateDatabase={updateDatabase}
@@ -142,4 +142,4 @@ function Table() {
 }
 
 
-export default Table;
+export default FeesManagement;

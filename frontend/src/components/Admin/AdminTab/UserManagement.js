@@ -1,8 +1,8 @@
 import { Button, Grid, IconButton, makeStyles, Paper, TextField } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import useForm from '../../components/Resue/useForm';
-import { /*deleteUser,*/ listUsers, saveUser } from '../../Redux/User/UserAction';
+import useForm from '../../Resue/useForm';
+import { /*deleteUser,*/ listUsers, saveUser } from '../../../Redux/User/UserAction';
 //import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import EditIcon from "@material-ui/icons/Edit";
 
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-function UserList(props) {
+function UserManagement(props) {
     const [modalVisible, setModalVisible] = useState(false);
     const classes = useStyles();
     const userList = useSelector(state=>state.userList);
@@ -242,4 +242,4 @@ function UserList(props) {
     </>
 }
 
-export default UserList;
+export default UserManagement;

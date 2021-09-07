@@ -44,6 +44,7 @@ router.post("/", isAuth, isAdmin, async (req, res)=>{
     user.phone = req.body.phone;
     user.password = bcrypt.hashSync(req.body.password,bcrypt.genSaltSync(5),null);
     user.fees = [{payMethod:"0", amount:"0"},{payMethod:"0", amount:"0"},{payMethod:"0", amount:"0"},{payMethod:"0", amount:"0"},{payMethod:"0", amount:"0"},{payMethod:"0", amount:"0"},{payMethod:"0", amount:"0"},{payMethod:"0", amount:"0"},{payMethod:"0", amount:"0"},{payMethod:"0", amount:"0"},{payMethod:"0", amount:"0"},{payMethod:"0", amount:"0"}]
+    user.batches = [{isBatch:false},{isBatch:false},{isBatch:false},{isBatch:false},{isBatch:false},{isBatch:false},{isBatch:false},{isBatch:false},{isBatch:false},{isBatch:false},{isBatch:false},{isBatch:false},{isBatch:false},{isBatch:false},{isBatch:false}]
 
     const newUser = await user.save();
     if(newUser){
@@ -55,6 +56,7 @@ router.post("/", isAuth, isAdmin, async (req, res)=>{
             phone:newUser.phone,
             isAdmin:newUser.isAdmin,
             fees:newUser.fees,
+            batches:newUser.batches,
             token: getToken(newUser)
         })
     }
@@ -77,6 +79,7 @@ router.put('/:id', isAuth, async (req, res) => {
         user.password = bcrypt.hashSync(req.body.password,bcrypt.genSaltSync(5),null);
       }
       user.fees = req.body.fees || user.fees;
+      user.batches = req.body.batches || user.batches;
       const updatedUser = await user.save();
       res.send({
         _id: updatedUser.id,
@@ -86,6 +89,7 @@ router.put('/:id', isAuth, async (req, res) => {
         phone: updatedUser.phone,
         isAdmin: updatedUser.isAdmin,
         fees:updatedUser.fees,
+        batches:updatedUser.batches,
         token: getToken(updatedUser),
       });
     } else {
@@ -124,6 +128,7 @@ router.post('/signin', async (req, res) => {
             phone:signinUser.phone,
             isAdmin:signinUser.isAdmin,
             fees:signinUser.fees,
+            batches:signinUser.batches,
             token: getToken(signinUser)
         })
     }
@@ -150,6 +155,7 @@ router.post('/createadmin', async (req, res) => {
                 user.password = bcrypt.hashSync(req.body.password,bcrypt.genSaltSync(5),null);
                 user.isAdmin = true;
                 user.fees = {};
+                user.batches = {};
                 const newUSer = await user.save();
                 res.send(newUSer);
             }

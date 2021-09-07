@@ -2,8 +2,8 @@ import React from 'react'
 import {formatNumberCustom} from './CommonFunctions'
 import './Table.scss'
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel, makeStyles, MenuItem, Select, TextField } from '@material-ui/core';
-import {MONTH_COLUMNS,STUDENT_MAPPING} from './CommonConstants'
-import useForm from '../../components/Resue/useForm'
+import {MONTH_COLUMNS,STUDENT_MAPPING} from '../Utils/CommonConstants'
+import useForm from '../Resue/useForm'
 
 const initialLoginValues = {
     id:0,
@@ -35,7 +35,7 @@ const useStyles = makeStyles({
   },
 })
 
-const Cell = (props) => {
+const FeesCell = (props) => {
   const {cellID, total, updateDatabase, payMethod} = props;
   const [open, setOpen] = React.useState(false);
   const {
@@ -142,5 +142,5 @@ const classes = useStyles()
   );
 };
 
-export default Cell;
+export default FeesCell;
   

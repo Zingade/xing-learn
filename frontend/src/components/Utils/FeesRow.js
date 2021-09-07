@@ -1,7 +1,7 @@
-import Cell from './Cell';
+import FeesCell from './FeesCell';
 import './Table.scss'
 
-function Row(props) {
+function FeesRow(props) {
   const {data, updateDatabase} = props;
   return (
     <>
@@ -14,7 +14,7 @@ function Row(props) {
       </div>
       {
         data.fees.map((fee,count) => (
-          <Cell
+          <FeesCell
             key={count}
             updateDatabase={updateDatabase}
             cellID={(data.name +"@"+count+"@"+fee.amount)}
@@ -27,4 +27,4 @@ function Row(props) {
   );
 }
 
-export default Row;
+export default FeesRow;

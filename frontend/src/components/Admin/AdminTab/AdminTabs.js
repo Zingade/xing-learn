@@ -2,10 +2,11 @@ import React, { useState, Fragment } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { GmailTabs, GmailTabItem } from "@mui-treasury/components/tabs/gmail";
 import { Box, Card, Grid, Paper } from "@material-ui/core";
-import { MenuBook, PeopleAlt, Payment } from "@material-ui/icons";
-import UserList from "../../../containers/User/UserList";
+import { MenuBook, PeopleAlt, Payment, GroupWork } from "@material-ui/icons";
+import UserManagement from "./UserManagement";
 import { Suspense } from "react";
-import Table from "../../fees/Table";
+import FeesManagement from "./FeesManagement";
+import BatchManagement from "./BatchManagement";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -18,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
   },
   gmailTabs: {
     backgroundColor: "inherit",
+    '& .MuiButtonBase-root':{
+      width:"2px",
+    }
   },
   wrapper: {
     color: "darkgray !important",
@@ -79,9 +83,15 @@ const AdminTabs = () => {
           classes={{ wrapper: classes.wrapper }}
         />
         <GmailTabItem
+          icon={<GroupWork />}
+          label={"Batch Assign"}
+          {...a11yProps(2)}
+          classes={{ wrapper: classes.wrapper }}
+        />
+        <GmailTabItem
           icon={<MenuBook />}
           label={"Course Assign"}
-          {...a11yProps(2)}
+          {...a11yProps(3)}
           classes={{ wrapper: classes.wrapper }}
         />
       </GmailTabs>
@@ -91,19 +101,23 @@ const AdminTabs = () => {
           <TabPanel tabNum={tabNum} index={0}>
             <Grid item component={Card} elevation={10} className={classes.assetcard}>
               <Suspense fallback={<div />}>
-              <Table/>
+              <FeesManagement/>
               </Suspense>
             </Grid>
           </TabPanel>
 
           <TabPanel tabNum={tabNum} index={1}>
             <Grid item component={Card} elevation={10} className={classes.assetcard}>
-              <UserList />
+              <UserManagement />
             </Grid>
           </TabPanel>
 
           <TabPanel tabNum={tabNum} index={2}>
-            Panel 3 Contents
+            <BatchManagement/>
+          </TabPanel>
+
+          <TabPanel tabNum={tabNum} index={3}>
+            Panel 4 Contents
           </TabPanel>
         </Paper>
       </Box>
