@@ -1,8 +1,7 @@
-import { useEffect } from 'react';
 import HeaderCell from '../../Utils/HeaderCell';
 import '../../Utils/Table.scss'
 import { useDispatch, useSelector } from 'react-redux';
-import { listUsers, saveUser } from '../../../Redux/User/UserAction';
+import { saveUser } from '../../../Redux/User/UserAction';
 import {BATCH_MAPPING, BATCH_COLUMNS} from '../../Utils/CommonConstants'
 import {capitalizeCustom} from '../../Utils/CommonFunctions'
 import { Backdrop, CircularProgress, makeStyles } from '@material-ui/core';
@@ -28,23 +27,11 @@ function BatchManagement() {
 
   const userList = useSelector(state=>state.userList);
   const {loading, users, error} = userList;
-  const userSave = useSelector(state=>state.userSave);
-  const {success: successSave} = userSave;
-  const userDelete = useSelector(state=>state.userDelete);
-  const {success: successDelete} = userDelete;
+  useSelector(state=>state.userSave);
   const dispatch = useDispatch();
   const grandTotal = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   const classes = useStyles()
   const  studentList = users.filter((stud)=>{return (stud.isAdmin === false)});
-
-  useEffect(()=>{
-    if(successSave){
-        //setModalVisible(false);
-    }
-    dispatch(listUsers());
-    return () =>{
-    };
-  }, [successSave,successDelete,dispatch]);
 
   const updateDatabase = (values) => {
     let user = users.filter((stud)=>{return (stud.name === values.name)})[0];

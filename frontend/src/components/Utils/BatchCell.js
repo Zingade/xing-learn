@@ -1,19 +1,9 @@
 import React from 'react'
 import './Table.scss'
-import { makeStyles } from '@material-ui/core';
-
-const useStyles = makeStyles({
-  cellStat:{
-    alignItems: "center",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-  },
-})
 
 const BatchCell = (props) => {
   const {cellID, isBatch, updateDatabase} = props;
-
+  let selectStatus = (isBatch)?'selectStatus':''; 
 
   const handleClick = (event) => {
     let subString = event.target.id;
@@ -33,9 +23,8 @@ const BatchCell = (props) => {
     updateDatabase({name:name, batch: parseInt(batchIndex), batchSelect:batchSelect})
   }
 
-const classes = useStyles()
   return (
-    <div id={cellID} className={classes.cellStat} style={{margin: "0.5rem 0.5rem", backgroundColor:(isBatch)?"green":"white"}} onClick={handleClick}>
+    <div id={cellID} className={`cell ${selectStatus}`} onClick={handleClick}>
     </div>
   );
 };

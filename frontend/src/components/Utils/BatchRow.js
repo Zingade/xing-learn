@@ -11,17 +11,17 @@ function BatchRow(props) {
             {data.name}
           </div>
         </div>
+        {
+          data.batches.map((batch,count) => (
+            <BatchCell
+              key={count}
+              updateDatabase={updateDatabase}
+              cellID={(data.name +"@"+count+"@"+batch.isBatch)}
+              isBatch={batch.isBatch}
+              />
+          ))
+        }
       </div>
-      {
-        data.batches.map((batch,count) => (
-          <BatchCell
-            key={count}
-            updateDatabase={updateDatabase}
-            cellID={(data.name +"@"+count+"@"+batch.isBatch)}
-            isBatch={batch.isBatch}
-            />
-        ))
-      }
     </>
   );
 }

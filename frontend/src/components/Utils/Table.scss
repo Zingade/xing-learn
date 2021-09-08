@@ -115,14 +115,19 @@
       z-index: 11;
     }
 
+    &.selectStatus {
+      margin: 0.5rem 0.5rem;
+      background:green;
+    }
+  
     &.statistic {
-      align-items: flex-end;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 
-      .total {
-        font-size: 12px;
+    .total {
+      font-size: 12px;
       }
     }
     &.heading {
