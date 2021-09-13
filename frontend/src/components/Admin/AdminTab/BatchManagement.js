@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { saveUser } from '../../../Redux/User/UserAction';
 import {BATCH_MAPPING, BATCH_COLUMNS} from '../../Utils/CommonConstants'
 import {capitalizeCustom} from '../../Utils/CommonFunctions'
-import { Backdrop, CircularProgress, makeStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 import BatchRow from '../../Utils/BatchRow'
 
 // eslint-disable-next-line
@@ -52,11 +52,7 @@ function BatchManagement() {
   return (
     <>
     {(loading) ? (
-        <div>
-          <Backdrop className={classes.backdrop} open>
-            <CircularProgress color="inherit" />
-          </Backdrop>
-        </div>
+        <div>Loading....</div>
       ) : (error) ? (
         <div>{error}</div>
       ) : (<> 

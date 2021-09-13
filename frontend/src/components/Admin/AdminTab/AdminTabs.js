@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { GmailTabs, GmailTabItem } from "@mui-treasury/components/tabs/gmail";
 import { Box, Card, Grid, Paper } from "@material-ui/core";
@@ -7,6 +7,8 @@ import UserManagement from "./UserManagement";
 import { Suspense } from "react";
 import FeesManagement from "./FeesManagement";
 import BatchManagement from "./BatchManagement";
+import { useDispatch } from "react-redux";
+import { listUsers } from "../../../Redux/User/UserAction";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -56,6 +58,14 @@ const AdminTabs = () => {
   const classes = useStyles();
   const [tabNum, setTabNum] = useState(0);
 
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(listUsers());
+    return () =>{
+    };
+  }, [dispatch]);
+
   const handleChange = (_, newValue) => {
     setTabNum(newValue);
   };
@@ -78,13 +88,13 @@ const AdminTabs = () => {
         />
         <GmailTabItem
           icon={<Payment />}
-          label={"User Mgmt"}
+          label={"Batch Assign"}
           {...a11yProps(1)}
           classes={{ wrapper: classes.wrapper }}
         />
         <GmailTabItem
           icon={<GroupWork />}
-          label={"Batch Assign"}
+          label={"User Mgmt"}
           {...a11yProps(2)}
           classes={{ wrapper: classes.wrapper }}
         />
@@ -108,12 +118,14 @@ const AdminTabs = () => {
 
           <TabPanel tabNum={tabNum} index={1}>
             <Grid item component={Card} elevation={10} className={classes.assetcard}>
-              <UserManagement />
+              <BatchManagement/>
             </Grid>
           </TabPanel>
 
           <TabPanel tabNum={tabNum} index={2}>
-            <BatchManagement/>
+            <Grid container justifyContent="space-evenly" style={{display:"flex"}}>
+              <UserManagement />
+            </Grid>
           </TabPanel>
 
           <TabPanel tabNum={tabNum} index={3}>

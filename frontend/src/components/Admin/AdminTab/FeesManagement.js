@@ -1,9 +1,9 @@
-import { lazy, useEffect } from 'react';
+import { lazy } from 'react';
 import HeaderCell from '../../Utils/HeaderCell';
 import {MONTH_COLUMNS} from '../../Utils/CommonConstants'
 import '../../Utils/Table.scss'
 import { useDispatch, useSelector } from 'react-redux';
-import { listUsers, saveUser } from '../../../Redux/User/UserAction';
+import { saveUser } from '../../../Redux/User/UserAction';
 import {STUDENT_MAPPING, summaryFees} from '../../Utils/CommonConstants'
 import {capitalizeCustom} from '../../Utils/CommonFunctions'
 import Level from '../../Utils/Level';
@@ -27,23 +27,11 @@ function FeesManagement() {
 
   const userList = useSelector(state=>state.userList);
   const {loading, users, error} = userList;
-  const userSave = useSelector(state=>state.userSave);
-  const {success: successSave} = userSave;
-  const userDelete = useSelector(state=>state.userDelete);
-  const {success: successDelete} = userDelete;
+  useSelector(state=>state.userSave);
   const dispatch = useDispatch();
   const grandTotal = [0,0,0,0,0,0,0,0,0,0,0,0];
   const classes = useStyles()
   const  studentList = users.filter((stud)=>{return (stud.isAdmin === false)});
-
-  useEffect(()=>{
-    if(successSave){
-        //setModalVisible(false);
-    }
-    dispatch(listUsers());
-    return () =>{
-    };
-  }, [successSave,successDelete,dispatch]);
 
   const updateDatabase = (values) => {
     let user = users.filter((stud)=>{return (stud.name === values.name)})[0];
