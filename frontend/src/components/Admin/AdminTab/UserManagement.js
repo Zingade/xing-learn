@@ -68,6 +68,7 @@ function UserManagement(props) {
         values.password = user.password;
         values.confirmPassword = user.confirmPassword;
         values.phone = user.phone;
+        setErrors({})
         setOpen(true)
     }
     
