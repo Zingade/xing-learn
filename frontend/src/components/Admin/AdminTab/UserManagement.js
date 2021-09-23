@@ -50,7 +50,7 @@ function UserManagement(props) {
     const  studentList = users.filter((stud)=>{return (stud.isAdmin === false)});
 
     const handleAddNew = () => {
-        setDialogOpen(initialLoginValues)
+        setDialogOpen({id:0, name:'', loginID:'', email:'', password:'', confirmPassword:'', phone:''})
     }
 
     const {
@@ -126,7 +126,6 @@ function UserManagement(props) {
             <DialogTitle >{(values.id)?"Update User":"Create New User"}</DialogTitle>
             <DialogContent>
             <TextField
-            autoFocus 
             variant="outlined"
             label="Username" 
             name="userName"
