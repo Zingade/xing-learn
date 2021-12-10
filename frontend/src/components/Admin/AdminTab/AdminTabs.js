@@ -5,7 +5,7 @@ import { Box, Card, Grid, Paper } from "@material-ui/core";
 import { MenuBook, PeopleAlt, Payment, GroupWork } from "@material-ui/icons";
 import UserManagement from "./UserManagement";
 import { Suspense } from "react";
-import FeesManagement from "./FeesManagement";
+import {FeesManagement} from "./FeesManagement";
 import BatchManagement from "./BatchManagement";
 import { useDispatch } from "react-redux";
 import { listUsers } from "../../../Redux/User/UserAction";

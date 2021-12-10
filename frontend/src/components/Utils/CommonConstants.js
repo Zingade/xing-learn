@@ -171,3 +171,7 @@ export var summaryFees  = {
   total: {Overall:0, Cash:0, GPay:0},
 }
 
+export const THIS_MONTH_AMOUNT_VALUE = "1";
+export const LAST_MONTH_AMOUNT_VALUE = "2";
+export const TOTAL_AMOUNT_VALUE = "3";
+export const BATCH_BUMBER_VALUE = "4";

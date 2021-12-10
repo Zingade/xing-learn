@@ -23,6 +23,39 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
+function findGrandTotal(users, grandTotal)  {
+  const currentMonth = (((new Date()).getMonth()+7)%12)
+  summaryFees.total.Overall = 0
+  summaryFees.total.Cash = 0
+  summaryFees.total.GPay = 0
+  summaryFees.delta.Overall = 0
+  summaryFees.delta.Cash = 0
+  summaryFees.delta.GPay = 0
+  users.map(user => {
+    user.fees.map((fee,count) => {
+      grandTotal[count%12] += parseInt(fee.amount)
+      summaryFees.total.Overall += parseInt(fee.amount)
+      if (fee.payMethod === "1") {
+        summaryFees.total.GPay += parseInt(fee.amount)
+        if ((count%12) === currentMonth){
+          summaryFees.delta.GPay += parseInt(fee.amount);
+          summaryFees.delta.Overall += parseInt(fee.amount);
+        }
+      }
+      else{
+        summaryFees.total.Cash += parseInt(fee.amount)
+        if ((count%12) === currentMonth){
+          summaryFees.delta.Cash += parseInt(fee.amount);
+          summaryFees.delta.Overall += parseInt(fee.amount);
+        }
+      }
+      return fee
+    })
+    return user
+  })
+}
+
+
 function FeesManagement() {
 
   const userList = useSelector(state=>state.userList);
@@ -38,38 +71,6 @@ function FeesManagement() {
     user.fees[values.month].amount = values.amount;
     user.fees[values.month].payMethod = values.payMethod;
     dispatch(saveUser(user))
-  }
-
-  const findGrandTotal = () => {
-    const currentMonth = (((new Date()).getMonth()+7)%12)
-    summaryFees.total.Overall = 0
-    summaryFees.total.Cash = 0
-    summaryFees.total.GPay = 0
-    summaryFees.delta.Overall = 0
-    summaryFees.delta.Cash = 0
-    summaryFees.delta.GPay = 0
-    users.map(user => {
-      user.fees.map((fee,count) => {
-        grandTotal[count%12] += parseInt(fee.amount)
-        summaryFees.total.Overall += parseInt(fee.amount)
-        if (fee.payMethod === "1") {
-          summaryFees.total.GPay += parseInt(fee.amount)
-          if ((count%12) === currentMonth){
-            summaryFees.delta.GPay += parseInt(fee.amount);
-            summaryFees.delta.Overall += parseInt(fee.amount);
-          }
-        }
-        else{
-          summaryFees.total.Cash += parseInt(fee.amount)
-          if ((count%12) === currentMonth){
-            summaryFees.delta.Cash += parseInt(fee.amount);
-            summaryFees.delta.Overall += parseInt(fee.amount);
-          }
-        }
-        return fee
-      })
-      return user
-    })
   }
 
   return (
@@ -90,7 +91,7 @@ function FeesManagement() {
               gridTemplateColumns: `repeat(${13}, auto)`,
             }}
             >
-            {findGrandTotal()}
+            {findGrandTotal(users, grandTotal)}
               <div className="row heading">
                 <div className="cell heading">
                   <div>Student Name</div>
@@ -130,4 +131,4 @@ function FeesManagement() {
 }
 
 
-export default FeesManagement;
+export {FeesManagement, findGrandTotal};
